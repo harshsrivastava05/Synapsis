@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Linkedin, ArrowRight, Star } from "lucide-react";
+import { Mail, Linkedin, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import Testimonials from "@/components/Testimonials";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,36 +70,6 @@ const Contact = () => {
     setFormData({ name: "", email: "", company: "", message: "" });
   };
 
-  const testimonials = [
-    {
-      quote:
-        "Synapsis Medical transformed our healthcare operations with their AI-powered diagnostic tools, reducing response time by 75%.",
-      author: "Dr. Sarah Johnson",
-      title: "Chief Medical Officer, MetroHealth",
-    },
-    {
-      quote:
-        "Their nanotechnology solutions revolutionized our manufacturing process, improving efficiency by 60% while reducing costs.",
-      author: "Michael Chen",
-      title: "VP of Operations, NanoTech Industries",
-    },
-    {
-      quote:
-        "The real estate analytics platform provided invaluable insights that helped us make data-driven investment decisions.",
-      author: "Lisa Rodriguez",
-      title: "Director of Investments, Urban Development Corp",
-    },
-  ];
-
-  const trustedCompanies = [
-    "MetroHealth",
-    "NanoTech Industries",
-    "Urban Development Corp",
-    "GreenTech Solutions",
-    "Future Labs",
-    "HealthFirst Medical",
-  ];
-
   return (
     <>
       {/* Minimalist Toast */}
@@ -146,8 +117,8 @@ const Contact = () => {
                     Get in touch
                   </h2>
                   <p className="text-gray-600">
-                    Share your project details and we&apos;ll get back to you within
-                    24 hours.
+                    Share your project details and we&apos;ll get back to you
+                    within 24 hours.
                   </p>
                 </div>
 
@@ -331,82 +302,8 @@ const Contact = () => {
         </section>
 
         {/* Testimonials */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-6xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl font-light text-gray-900 mb-4">
-                What our clients say
-              </h2>
-              <p className="text-gray-600">
-                Trusted by industry leaders worldwide
-              </p>
-            </motion.div>
+        <Testimonials />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-white p-8 rounded-sm shadow-sm"
-                >
-                  <div className="flex mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-4 w-4 text-gray-900 fill-current"
-                      />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 mb-6 leading-relaxed">
-                    &quot;{testimonial.quote}&quot;
-                  </p>
-                  <div className="border-t pt-4">
-                    <p className="font-medium text-gray-900">
-                      {testimonial.author}
-                    </p>
-                    <p className="text-sm text-gray-600">{testimonial.title}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Trusted By */}
-        <section className="py-16 bg-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <p className="text-gray-500 mb-8">
-                Trusted by leading organizations
-              </p>
-              <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-                {trustedCompanies.map((company, index) => (
-                  <div
-                    key={index}
-                    className="text-gray-400 font-medium text-lg opacity-60 hover:opacity-100 transition-opacity duration-300"
-                  >
-                    {company}
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </section>
       </div>
     </>
   );

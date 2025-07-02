@@ -165,7 +165,7 @@ export default function AboutUsSection() {
           opacity: [0.5, 1, 0.5],
         }}
         transition={{
-          duration: 3,
+          duration: 2,
           repeat: Number.POSITIVE_INFINITY,
           ease: "easeInOut",
         }}
@@ -253,8 +253,8 @@ export default function AboutUsSection() {
                 className="rounded-md overflow-hidden shadow-xl"
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+                whileHover={{ scale: 1.03, transition: { duration: 0.4 } }}
               >
                 <div className="flex items-center justify-center w-full max-w-xs h-64 md:h-80 relative rounded-md overflow-hidden shadow-xl bg-neutral-100">
                   <Image
@@ -270,14 +270,14 @@ export default function AboutUsSection() {
                   className="absolute inset-0 bg-gradient-to-t from-neutral-900/50 to-transparent flex items-end justify-center p-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
+                  transition={{ duration: 0.4, delay: 0.4 }}
                 ></motion.div>
               </motion.div>
               <motion.div
                 className="absolute inset-0 border-4 border-neutral-300 rounded-md -m-3 z-[-1]"
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
               ></motion.div>
 
               {/* Floating accent elements */}
@@ -285,14 +285,14 @@ export default function AboutUsSection() {
                 className="absolute -top-4 -right-8 w-16 h-16 rounded-full bg-neutral-200/30"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.9 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
                 style={{ y: y1 }}
               ></motion.div>
               <motion.div
                 className="absolute -bottom-6 -left-10 w-20 h-20 rounded-full bg-neutral-300/30"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 1.1 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
                 style={{ y: y2 }}
               ></motion.div>
 
@@ -304,7 +304,7 @@ export default function AboutUsSection() {
                   opacity: [0.5, 1, 0.5],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 0.4,
                   repeat: Number.POSITIVE_INFINITY,
                   ease: "easeInOut",
                 }}
@@ -316,7 +316,7 @@ export default function AboutUsSection() {
                   opacity: [0.5, 1, 0.5],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 0.4,
                   repeat: Number.POSITIVE_INFINITY,
                   ease: "easeInOut",
                   delay: 0.5,
@@ -368,7 +368,7 @@ export default function AboutUsSection() {
         <motion.div
           className="mt-20 bg-neutral-900 text-white p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6"
           initial={{ opacity: 0, y: 30 }}
-          animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 30 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <div className="flex-1">
@@ -381,7 +381,7 @@ export default function AboutUsSection() {
           </div>
           <Link href="/contacts">
             <motion.button
-              className="bg-neutral-700 hover:bg-neutral-600 text-white px-6 py-3 rounded-lg flex items-center gap-2 font-medium transition-colors"
+              className="bg-neutral-700 hover:bg-neutral-600 text-white px-6 py-3 rounded-sm flex items-center gap-2 font-medium transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

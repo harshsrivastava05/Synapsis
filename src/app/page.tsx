@@ -9,6 +9,9 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FlipWords } from "@/components/ui/flip-words";
 import AboutUsSection from "@/components/ui/about-us-section";
+import { BlogMarquee } from "@/components/ui/blog-carousel";
+import { GridPattern } from "@/components/magicui/grid-pattern";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,6 +102,15 @@ export default function HomePage() {
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
       >
+        <GridPattern
+        width={40}
+        height={40}
+        x={10}
+        y={5}
+        className={cn(
+          "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] ",
+        )}
+      />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -117,7 +129,7 @@ export default function HomePage() {
           </motion.h1>
 
           <motion.div
-            className="text-lg md:text-xl lg:text-2xl text-neutral-700 max-w-4xl mx-auto mb-4 font-light leading-relaxed min-h-[3rem]"
+            className="text-lg md:text-xl lg:text-2xl text-neutral-700 max-w-4xl mx-auto mb-4 font-light leading-relaxed min-h-[4rem]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -149,6 +161,9 @@ export default function HomePage() {
 
       {/* About Section */}
       <AboutUsSection />
+
+      {/*Blog section */}
+      <BlogMarquee />
     </div>
   );
 }
