@@ -84,15 +84,6 @@ export default function HomePage() {
     return () => ctx.revert();
   }, []);
 
-  const companies = [
-    { name: "HealthTech Solutions", logo: "HTS" },
-    { name: "RealEstate Analytics", logo: "REA" },
-    { name: "Green Energy Corp", logo: "GEC" },
-    { name: "Retail Innovation", logo: "RIN" },
-    { name: "Medical Research Inc", logo: "MRI" },
-    { name: "Tech Sustainability", logo: "TSG" },
-  ];
-
   const descriptiveWords = [
     "crafting",
     "developing",

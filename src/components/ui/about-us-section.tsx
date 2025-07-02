@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef } from "react";
 import {
   Pen,
   PaintBucket,
@@ -19,31 +19,34 @@ import {
   ArrowRight,
   Zap,
   TrendingUp,
-} from "lucide-react"
-import { motion, useScroll, useTransform, useInView, useSpring, easeInOut } from "framer-motion"
-import Link from "next/link"
+} from "lucide-react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useInView,
+  useSpring,
+  easeInOut,
+} from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutUsSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const statsRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(sectionRef, { once: false, amount: 0.1 })
-  const isStatsInView = useInView(statsRef, { once: false, amount: 0.3 })
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.1 });
+  const isStatsInView = useInView(statsRef, { once: false, amount: 0.3 });
 
   // Parallax effect for decorative elements
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
-  })
+  });
 
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -50])
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 50])
-  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 20])
-  const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -20])
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 20]);
+  const rotate2 = useTransform(scrollYProgress, [0, 1], [0, -20]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -54,7 +57,7 @@ export default function AboutUsSection() {
         delayChildren: 0.3,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -63,12 +66,14 @@ export default function AboutUsSection() {
       opacity: 1,
       transition: { duration: 0.6, ease: easeInOut },
     },
-  }
+  };
 
   const services = [
     {
       icon: <Pen className="w-6 h-6" />,
-      secondaryIcon: <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />,
+      secondaryIcon: (
+        <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />
+      ),
       title: "AI Solutions",
       description:
         "Transform your business operations with our cutting-edge AI solutions. We blend innovation and practicality to create intelligent systems that drive efficiency and growth.",
@@ -76,7 +81,9 @@ export default function AboutUsSection() {
     },
     {
       icon: <Home className="w-6 h-6" />,
-      secondaryIcon: <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />,
+      secondaryIcon: (
+        <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />
+      ),
       title: "Medical Tech",
       description:
         "Revolutionizing healthcare through advanced medical technologies that enhance patient care and streamline clinical workflows with precision and reliability.",
@@ -84,7 +91,9 @@ export default function AboutUsSection() {
     },
     {
       icon: <PenTool className="w-6 h-6" />,
-      secondaryIcon: <Star className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />,
+      secondaryIcon: (
+        <Star className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />
+      ),
       title: "Custom Development",
       description:
         "Our innovative development process combines technical expertise with deep industry knowledge, resulting in solutions that are both powerful and user-friendly.",
@@ -92,7 +101,9 @@ export default function AboutUsSection() {
     },
     {
       icon: <PaintBucket className="w-6 h-6" />,
-      secondaryIcon: <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />,
+      secondaryIcon: (
+        <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />
+      ),
       title: "Data Analytics",
       description:
         "Unlock the power of your data with our comprehensive analytics solutions. From visualization to predictive modeling, we turn data into actionable insights.",
@@ -100,28 +111,37 @@ export default function AboutUsSection() {
     },
     {
       icon: <Ruler className="w-6 h-6" />,
-      secondaryIcon: <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />,
-      title: "System Integration",  
+      secondaryIcon: (
+        <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />
+      ),
+      title: "System Integration",
       description:
         "Our meticulous integration process ensures seamless connectivity between systems, with careful attention to security, performance, and scalability requirements.",
       position: "right",
     },
     {
       icon: <Building2 className="w-6 h-6" />,
-      secondaryIcon: <Star className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />,
+      secondaryIcon: (
+        <Star className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />
+      ),
       title: "Implementation",
       description:
         "Watch your vision come to life through our flawless implementation. Our skilled team handles every aspect of deployment with precision and ongoing support.",
       position: "right",
     },
-  ]
+  ];
 
   const stats = [
     { icon: <Award />, value: 10, label: "Projects Completed", suffix: "+" },
     { icon: <Users />, value: 10, label: "Happy Clients", suffix: "+" },
     { icon: <Calendar />, value: 5, label: "Years Experience", suffix: "" },
-    { icon: <TrendingUp />, value: 100, label: "Satisfaction Rate", suffix: "%" },
-  ]
+    {
+      icon: <TrendingUp />,
+      value: 100,
+      label: "Satisfaction Rate",
+      suffix: "%",
+    },
+  ];
 
   return (
     <section
@@ -170,7 +190,10 @@ export default function AboutUsSection() {
         animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
       >
-        <motion.div className="flex flex-col items-center mb-6" variants={itemVariants}>
+        <motion.div
+          className="flex flex-col items-center mb-6"
+          variants={itemVariants}
+        >
           <motion.span
             className="text-neutral-600 font-medium mb-2 flex items-center gap-2"
             initial={{ opacity: 0, y: -10 }}
@@ -180,7 +203,9 @@ export default function AboutUsSection() {
             <Zap className="w-4 h-4" />
             DISCOVER OUR STORY
           </motion.span>
-          <h2 className="text-4xl md:text-5xl font-light mb-4 text-center">About Us</h2>
+          <h2 className="text-4xl md:text-5xl font-light mb-4 text-center">
+            About Us
+          </h2>
           <motion.div
             className="w-24 h-1 bg-neutral-800"
             initial={{ width: 0 }}
@@ -189,9 +214,14 @@ export default function AboutUsSection() {
           ></motion.div>
         </motion.div>
 
-        <motion.p className="text-center max-w-2xl mx-auto mb-16 text-neutral-700" variants={itemVariants}>
-          We are a passionate team of engineers and innovators dedicated to creating intelligent, scalable solutions that
-          transform industries. With attention to detail and commitment to excellence, we turn complex challenges into elegant solutions.
+        <motion.p
+          className="text-center max-w-2xl mx-auto mb-16 text-neutral-700"
+          variants={itemVariants}
+        >
+          We are a passionate team of engineers and innovators dedicated to
+          creating intelligent, scalable solutions that transform industries.
+          With attention to detail and commitment to excellence, we turn complex
+          challenges into elegant solutions.
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
@@ -215,7 +245,10 @@ export default function AboutUsSection() {
 
           {/* Center Image */}
           <div className="flex justify-center items-center order-first md:order-none mb-8 md:mb-0">
-            <motion.div className="relative w-full max-w-xs" variants={itemVariants}>
+            <motion.div
+              className="relative w-full max-w-xs"
+              variants={itemVariants}
+            >
               <motion.div
                 className="rounded-md overflow-hidden shadow-xl"
                 initial={{ scale: 0.9, opacity: 0 }}
@@ -223,25 +256,22 @@ export default function AboutUsSection() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
               >
-                <img
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop"
-                  alt="Our Team"
-                  className="w-full h-full object-cover"
-                />
+                <div className="flex items-center justify-center w-full max-w-xs h-64 md:h-80 relative rounded-md overflow-hidden shadow-xl bg-neutral-100">
+                  <Image
+                    src="/office.jpg"
+                    alt="Our Team"
+                    className="w-full h-full object-cover rounded-md"
+                    fill
+                    priority
+                  />
+                </div>
+
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-t from-neutral-900/50 to-transparent flex items-end justify-center p-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
-                >
-                  <motion.button
-                    className="bg-white text-neutral-900 px-4 py-2 rounded-full flex items-center gap-2 text-sm font-medium"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Our Portfolio <ArrowRight className="w-4 h-4" />
-                  </motion.button>
-                </motion.div>
+                ></motion.div>
               </motion.div>
               <motion.div
                 className="absolute inset-0 border-4 border-neutral-300 rounded-md -m-3 z-[-1]"
@@ -342,38 +372,54 @@ export default function AboutUsSection() {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <div className="flex-1">
-            <h3 className="text-2xl font-medium mb-2">Ready to transform your business?</h3>
-            <p className="text-white/80">Let's create something extraordinary together.</p>
+            <h3 className="text-2xl font-medium mb-2">
+              Ready to transform your business?
+            </h3>
+            <p className="text-white/80">
+              Let&apos;s create something extraordinary together.
+            </p>
           </div>
           <Link href="/contacts">
-          <motion.button
-            className="bg-neutral-700 hover:bg-neutral-600 text-white px-6 py-3 rounded-lg flex items-center gap-2 font-medium transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get Started <ArrowRight className="w-4 h-4" />
-          </motion.button>
+            <motion.button
+              className="bg-neutral-700 hover:bg-neutral-600 text-white px-6 py-3 rounded-lg flex items-center gap-2 font-medium transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get Started <ArrowRight className="w-4 h-4" />
+            </motion.button>
           </Link>
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }
 
 interface ServiceItemProps {
-  icon: React.ReactNode
-  secondaryIcon?: React.ReactNode
-  title: string
-  description: string
+  icon: React.ReactNode;
+  secondaryIcon?: React.ReactNode;
+  title: string;
+  description: string;
   variants: {
-    hidden: { opacity: number; y?: number }
-    visible: { opacity: number; y?: number; transition: { duration: number; ease: ((t: number) => number) } }
-  }
-  delay: number
-  direction: "left" | "right"
+    hidden: { opacity: number; y?: number };
+    visible: {
+      opacity: number;
+      y?: number;
+      transition: { duration: number; ease: (t: number) => number };
+    };
+  };
+  delay: number;
+  direction: "left" | "right";
 }
 
-function ServiceItem({ icon, secondaryIcon, title, description, variants, delay, direction }: ServiceItemProps) {
+function ServiceItem({
+  icon,
+  secondaryIcon,
+  title,
+  description,
+  variants,
+  delay,
+  direction,
+}: ServiceItemProps) {
   return (
     <motion.div
       className="flex flex-col group"
@@ -389,7 +435,10 @@ function ServiceItem({ icon, secondaryIcon, title, description, variants, delay,
       >
         <motion.div
           className="text-neutral-700 bg-neutral-100 p-3 rounded-lg transition-colors duration-300 group-hover:bg-neutral-200 relative"
-          whileHover={{ rotate: [0, -10, 10, -5, 0], transition: { duration: 0.5 } }}
+          whileHover={{
+            rotate: [0, -10, 10, -5, 0],
+            transition: { duration: 0.5 },
+          }}
         >
           {icon}
           {secondaryIcon}
@@ -416,38 +465,40 @@ function ServiceItem({ icon, secondaryIcon, title, description, variants, delay,
         </span>
       </motion.div>
     </motion.div>
-  )
+  );
 }
 
 interface StatCounterProps {
-  icon: React.ReactNode
-  value: number
-  label: string
-  suffix: string
-  delay: number
+  icon: React.ReactNode;
+  value: number;
+  label: string;
+  suffix: string;
+  delay: number;
 }
 
 function StatCounter({ icon, value, label, suffix, delay }: StatCounterProps) {
-  const countRef = useRef(null)
-  const isInView = useInView(countRef, { once: false })
-  const [hasAnimated, setHasAnimated] = useState(false)
+  const countRef = useRef(null);
+  const isInView = useInView(countRef, { once: false });
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   const springValue = useSpring(0, {
     stiffness: 50,
     damping: 10,
-  })
+  });
 
   useEffect(() => {
     if (isInView && !hasAnimated) {
-      springValue.set(value)
-      setHasAnimated(true)
+      springValue.set(value);
+      setHasAnimated(true);
     } else if (!isInView && hasAnimated) {
-      springValue.set(0)
-      setHasAnimated(false)
+      springValue.set(0);
+      setHasAnimated(false);
     }
-  }, [isInView, value, springValue, hasAnimated])
+  }, [isInView, value, springValue, hasAnimated]);
 
-  const displayValue = useTransform(springValue, (latest) => Math.floor(latest))
+  const displayValue = useTransform(springValue, (latest) =>
+    Math.floor(latest)
+  );
 
   return (
     <motion.div
@@ -468,12 +519,15 @@ function StatCounter({ icon, value, label, suffix, delay }: StatCounterProps) {
       >
         {icon}
       </motion.div>
-      <motion.div ref={countRef} className="text-3xl font-bold text-neutral-900 flex items-center">
+      <motion.div
+        ref={countRef}
+        className="text-3xl font-bold text-neutral-900 flex items-center"
+      >
         <motion.span>{displayValue}</motion.span>
         <span>{suffix}</span>
       </motion.div>
       <p className="text-neutral-600 text-sm mt-1">{label}</p>
       <motion.div className="w-10 h-0.5 bg-neutral-700 mt-3 group-hover:w-16 transition-all duration-300" />
     </motion.div>
-  )
+  );
 }

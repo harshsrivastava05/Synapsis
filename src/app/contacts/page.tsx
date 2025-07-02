@@ -4,11 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Linkedin, Send, ArrowRight, Star } from "lucide-react";
+import { Mail, Linkedin, ArrowRight, Star } from "lucide-react";
 import { toast } from "sonner";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -147,7 +146,7 @@ const Contact = () => {
                     Get in touch
                   </h2>
                   <p className="text-gray-600">
-                    Share your project details and we'll get back to you within
+                    Share your project details and we&apos;ll get back to you within
                     24 hours.
                   </p>
                 </div>
@@ -368,7 +367,7 @@ const Contact = () => {
                     ))}
                   </div>
                   <p className="text-gray-700 mb-6 leading-relaxed">
-                    "{testimonial.quote}"
+                    &quot;{testimonial.quote}&quot;
                   </p>
                   <div className="border-t pt-4">
                     <p className="font-medium text-gray-900">

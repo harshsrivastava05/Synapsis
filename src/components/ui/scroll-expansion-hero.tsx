@@ -1,4 +1,3 @@
-
 'use client';
 
 import {
@@ -10,6 +9,7 @@ import {
   WheelEvent,
 } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface ScrollExpandMediaProps {
   mediaType?: 'video' | 'image';
@@ -180,7 +180,7 @@ const ScrollExpandMedia = ({
             animate={{ opacity: 1 - scrollProgress }}
             transition={{ duration: 0.1 }}
           >
-            <img
+            <Image
               src={bgImageSrc}
               alt='Background'
               className='w-screen h-screen object-cover'
@@ -188,6 +188,7 @@ const ScrollExpandMedia = ({
                 objectFit: 'cover',
                 objectPosition: 'center',
               }}
+              fill
             />
             <div className='absolute inset-0 bg-black/10' />
           </motion.div>
@@ -266,10 +267,11 @@ const ScrollExpandMedia = ({
                   )
                 ) : (
                   <div className='relative w-full h-full'>
-                    <img
+                    <Image
                       src={mediaSrc}
                       alt={title || 'Media content'}
                       className='w-full h-full object-cover rounded-xl'
+                      fill
                     />
 
                     <motion.div

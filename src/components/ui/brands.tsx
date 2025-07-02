@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -12,7 +11,6 @@ interface Brand {
 interface BrandsGridProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   brands: Brand[];
-  imageHeight?: number;
 }
 
 export const BrandsGrid = React.forwardRef<HTMLDivElement, BrandsGridProps>(
@@ -20,7 +18,6 @@ export const BrandsGrid = React.forwardRef<HTMLDivElement, BrandsGridProps>(
     className,
     title = "Trusted and loved by fast-growing companies worldwide",
     brands,
-    imageHeight = 56,
     ...props 
   }, ref) => {
     return (

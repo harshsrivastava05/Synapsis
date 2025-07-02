@@ -4,8 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-
-const NAVBAR_HEIGHT = 64;
+import Image from 'next/image';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,10 +42,12 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3 flex-shrink-0">
-            <img
+            <Image
               src="/Synapsis_Logo.png"
               alt="Synapsis Medical Logo"
               className="h-10 w-auto object-contain"
+              width={40}
+              height={40}
             />
             <span className="hidden md:inline text-lg font-semibold text-gray-900">Synapsis Medical Technologies Inc.</span>
           </div>

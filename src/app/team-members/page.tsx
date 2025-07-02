@@ -6,9 +6,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Linkedin } from "lucide-react";
 import { BrandsGrid } from "@/components/ui/brands";
 import Image from 'next/image';
+import Link from "next/link";
 
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Define a TeamMember type for the team and board members and use it instead of 'any' in renderMemberCard.
+type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  linkedin: string;
+  avatar: string;
+};
 
 const Team = () => {
   const teamRef = useRef<HTMLDivElement>(null);
@@ -72,7 +82,7 @@ const Team = () => {
     {
       name: "Wasim",
       role: "Chief Healthcare Officer",
-      bio: "Wasim is Synapsis Medical's Chief Healthcare Officer, leading the Healthcare Solutions and Patient Care teams. He previously held leadership roles at Mayo Clinic and Johns Hopkins.",
+      bio: "Wasim is Synapsis Medical&apos;s Chief Healthcare Officer, leading the Healthcare Solutions and Patient Care teams. He previously held leadership roles at Mayo Clinic and Johns Hopkins.",
       linkedin: "https://linkedin.com/in/wasim",
       avatar: "/placeholder.svg"
     },
@@ -141,7 +151,7 @@ const Team = () => {
     { name: "KLEINER PERKINS" }
   ];
 
-  const renderMemberCard = (member: any, className: string) => (
+  const renderMemberCard = (member: TeamMember, className: string) => (
     <motion.div
       key={member.name}
       className={`${className} text-left`}
@@ -187,7 +197,7 @@ const Team = () => {
   );
 
   return (
-    <div className="pt-24 mt-24 mb-24 pb-20 bg-white">
+    <div className="pt-24 mt-8 md:mt-30 mb-24 pb-20 bg-white">
       {/* Introductory Section */}
       <section className="px-4 mb-20">
         <div className="max-w-4xl mx-auto text-center">
@@ -200,7 +210,7 @@ const Team = () => {
               Meet our team
             </h1>
             <p className="text-xl text-gray-600 mb-8 font-light leading-relaxed max-w-3xl mx-auto">
-              We're a diverse group of innovators, researchers, and industry experts united by our passion for transforming healthcare through cutting-edge technology.
+              We&apos;re a diverse group of innovators, researchers, and industry experts united by our passion for transforming healthcare through cutting-edge technology.
             </p>
             <p className="text-lg text-gray-500 font-light leading-relaxed max-w-2xl mx-auto">
               From AI specialists to healthcare veterans, our team combines deep technical expertise with real-world medical experience to create solutions that make a meaningful impact.
@@ -295,15 +305,17 @@ const Team = () => {
               Join Our Team
             </h2>
             <p className="text-lg mb-8 opacity-90 font-light max-w-2xl mx-auto">
-              We're always looking for talented individuals who share our passion for innovation and want to make a meaningful impact in healthcare technology.
+              We&apos;re always looking for talented individuals who share our passion for innovation and want to make a meaningful impact in healthcare technology.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-white text-gray-900 px-8 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300"
-            >
-              View Open Positions
-            </motion.button>
+            <Link href="/careers" passHref legacyBehavior>
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="bg-white text-gray-900 px-8 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300"
+              >
+                View Open Positions
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </section>

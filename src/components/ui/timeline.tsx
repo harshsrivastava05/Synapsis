@@ -1,6 +1,5 @@
 "use client";
 import {
-  useMotionValueEvent,
   useScroll,
   useTransform,
   motion,
@@ -49,7 +48,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           Our Project
         </h2>
         <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          These are the projects we've designed and developed to solve
+          These are the projects we&apos;ve designed and developed to solve
           real-world problems across healthcare, sustainability, logistics, and
           retail—using cutting-edge AI and modern technology.
         </p>

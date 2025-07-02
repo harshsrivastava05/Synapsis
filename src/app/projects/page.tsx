@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
-import { CheckCircle } from "lucide-react";
 
 const Projects = () => {
   const projectsData = [
@@ -139,7 +138,7 @@ const Projects = () => {
   }));
 
   return (
-    <div className="min-h-screen mt-30 w-full bg-white">
+    <div className="min-h-screen mt-8 md:mt-30 w-full bg-white">
       <div className="max-w-7xl mx-auto py-16 px-4 md:px-8 lg:px-10">
         <div className="text-center mb-16">
           <h1 className="text-3xl md:text-5xl font-bold text-black mb-6">
