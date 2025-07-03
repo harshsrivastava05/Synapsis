@@ -7,7 +7,8 @@ import {
   useSpring,
   MotionValue,
 } from "framer-motion";
-import Image from 'next/image';
+import Image from "next/image";
+import Link from "next/link";
 
 export const HeroParallax = ({
   products,
@@ -20,7 +21,7 @@ export const HeroParallax = ({
 }) => {
   const firstRow = products.slice(0, 4);
   const secondRow = products.slice(4, 8);
-  
+
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -72,23 +73,26 @@ export const HeroParallax = ({
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-10">
           {firstRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={product.title}
-            />
+            <Link href={product.link} target="_blank" rel="noopener noreferrer">
+              <ProductCard
+                product={product}
+                translate={translateX}
+                key={product.title}
+              />
+            </Link>
           ))}
         </motion.div>
         <motion.div className="flex flex-row mb-10 space-x-20">
           {secondRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateXReverse}
-              key={product.title}
-            />
+            <Link href={product.link} target="_blank" rel="noopener noreferrer">
+              <ProductCard
+                product={product}
+                translate={translateXReverse}
+                key={product.title}
+              />
+            </Link>
           ))}
         </motion.div>
-       
       </motion.div>
     </div>
   );
