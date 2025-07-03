@@ -20,7 +20,7 @@ const footerLinks: FooterSection[] = [
   {
     label: 'Company',
     links: [
-      { title: 'About Us', href: '/home' },
+      { title: 'About Us', href: '/' },
       { title: 'Team', href: '/team-members' },
       { title: 'Careers', href: '/careers' },
       { title: 'Privacy Policy', href: '/privacy' },
@@ -29,10 +29,10 @@ const footerLinks: FooterSection[] = [
   {
     label: 'Projects',
     links: [
-      { title: 'Maskwa - Land Approval System', href: '/projects/maskwa' },
-      { title: 'MyTeal - Mental Health AI', href: '/projects/myteal' },
-      { title: 'Clinic AI - Hospital Management', href: '/projects/clinic-ai' },
-      { title: 'Spyk Health - Lifestyle Tracker', href: '/projects/spyk' },
+      { title: 'Maskwa - Land Approval System', href: '/projects/Maskwa' },
+      { title: 'MyTeal - Mental Health AI', href: '/projects/MyTeal' },
+      { title: 'Clinic AI - Hospital Management', href: '/projects/ClinicAI' },
+      { title: 'Spyk Health - Lifestyle Tracker', href: '/projects/SPYK' },
     ],
   },
   {
@@ -57,7 +57,7 @@ const footerLinks: FooterSection[] = [
 
 export function Footer() {
   return (
-    <footer className="relative w-full max-w-7xl mx-auto flex flex-col items-center justify-center rounded-t-3xl md:rounded-t-[3rem] border-t border-neutral-200 bg-white dark:bg-black px-6 py-12 lg:py-16 mt-20">
+    <footer className="relative w-full  mx-auto flex flex-col items-center justify-center border border-neutral-200 bg-white dark:bg-black px-6 py-12 lg:py-16 mt-20">
       <div className="grid w-full gap-12 xl:grid-cols-3 xl:gap-16">
         <AnimatedContainer className="space-y-6">
           <div className="flex items-center space-x-2">

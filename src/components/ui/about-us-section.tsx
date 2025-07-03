@@ -147,7 +147,7 @@ export default function AboutUsSection() {
     <section
       id="about-section"
       ref={sectionRef}
-      className="w-full py-24 px-4 bg-white text-neutral-900 overflow-hidden relative"
+      className="w-full py-24 px-4 bg-white overflow-hidden relative"
     >
       {/* Decorative background elements */}
       <motion.div
@@ -185,17 +185,17 @@ export default function AboutUsSection() {
       />
 
       <motion.div
-        className="container mx-auto max-w-6xl relative z-10"
+        className="container mx-auto max-w-6xl relative z-10 bg-neutral-800 rounded-2xl shadow-xl px-4 md:px-12 py-12 md:py-20"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
       >
         <motion.div
-          className="flex flex-col items-center mb-6"
+          className="flex flex-col items-center mb-6 text-white"
           variants={itemVariants}
         >
           <motion.span
-            className="text-neutral-600 font-medium mb-2 flex items-center gap-2"
+            className="text-white font-medium mb-2 flex items-center gap-2"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -203,11 +203,11 @@ export default function AboutUsSection() {
             <Zap className="w-4 h-4" />
             DISCOVER OUR STORY
           </motion.span>
-          <h2 className="text-4xl md:text-5xl font-light mb-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-light mb-4 text-center text-white">
             About Us
           </h2>
           <motion.div
-            className="w-24 h-1 bg-neutral-800"
+            className="w-24 h-1 text-white"
             initial={{ width: 0 }}
             animate={{ width: 96 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -215,7 +215,7 @@ export default function AboutUsSection() {
         </motion.div>
 
         <motion.p
-          className="text-center max-w-2xl mx-auto mb-16 text-neutral-700"
+          className="text-center max-w-2xl mx-auto mb-16 text-neutral-200"
           variants={itemVariants}
         >
           We are a passionate team of engineers and innovators dedicated to
@@ -224,7 +224,7 @@ export default function AboutUsSection() {
           challenges into elegant solutions.
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 text-white gap-8 relative">
           {/* Left Column */}
           <div className="space-y-16">
             {services
@@ -347,7 +347,7 @@ export default function AboutUsSection() {
         {/* Stats Section */}
         <motion.div
           ref={statsRef}
-          className="mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-white"
           initial="hidden"
           animate={isStatsInView ? "visible" : "hidden"}
           variants={containerVariants}
@@ -363,32 +363,32 @@ export default function AboutUsSection() {
             />
           ))}
         </motion.div>
-
-        {/* CTA Section */}
-        <motion.div
-          className="mt-20 bg-neutral-900 text-white p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <div className="flex-1">
-            <h3 className="text-2xl font-medium mb-2">
-              Ready to transform your business?
-            </h3>
-            <p className="text-white/80">
-              Let&apos;s create something extraordinary together.
-            </p>
-          </div>
-          <Link href="/contacts">
-            <motion.button
-              className="bg-neutral-700 hover:bg-neutral-600 text-white px-6 py-3 rounded-sm flex items-center gap-2 font-medium transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get Started <ArrowRight className="w-4 h-4" />
-            </motion.button>
-          </Link>
-        </motion.div>
+      </motion.div>
+      {/* CTA Section OUTSIDE the box */}
+      <motion.div
+        className="container mx-auto max-w-6xl mt-10 bg-neutral-900 text-white p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <div className="flex-1">
+          <h3 className="text-2xl font-medium mb-2">
+            Ready to transform your business?
+          </h3>
+          <p className="text-white/80">
+            Let&apos;s create something extraordinary together.
+          </p>
+        </div>
+        <Link href="/contacts">
+          <motion.button
+            className="bg-neutral-700 hover:bg-neutral-600 text-white px-6 py-3 rounded-sm flex items-center gap-2 font-medium transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Get Started <ArrowRight className="w-4 h-4" />
+          </motion.button>
+        </Link>
       </motion.div>
     </section>
   );
@@ -443,12 +443,12 @@ function ServiceItem({
           {icon}
           {secondaryIcon}
         </motion.div>
-        <h3 className="text-xl font-medium text-neutral-900 group-hover:text-neutral-700 transition-colors duration-300">
+        <h3 className="text-xl font-medium text-white group-hover:text-white transition-colors duration-300">
           {title}
         </h3>
       </motion.div>
       <motion.p
-        className="text-sm text-neutral-700 leading-relaxed pl-12"
+        className="text-sm text-white leading-relaxed pl-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: delay + 0.4 }}
