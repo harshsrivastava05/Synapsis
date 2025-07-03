@@ -17,7 +17,7 @@ export const products = [
     title: "VBOIL - Smart Oil Recycling",
     link: "https://dev-vboil.synapsismedical.com/dashboard",
     thumbnail:
-      "/vboil.png?w=600&h=600&fit=crop",
+      "/VBOIL/Vboil2.png?w=600&h=600&fit=crop",
   },
   {
     title: "Spyk Health - Personal Wellness Tracker",
