@@ -78,7 +78,7 @@ const Contact = () => {
           Form submitted successfully!
         </div>
       )}
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-gray-100">
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-4">
           <div className="max-w-6xl mx-auto">
@@ -196,7 +196,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       required
-                      className="mt-2 border-gray-200 focus:border-gray-400 focus:ring-0 resize-none flex-grow min-h-[140px]"
+                      className="mt-2 bg-white text-gray-700 focus:border-gray-400 focus:ring-0 resize-none flex-grow min-h-[140px]"
                       placeholder="Describe your project, challenges, and how we can help..."
                     />
                   </div>

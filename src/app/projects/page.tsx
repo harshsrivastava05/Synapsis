@@ -5,28 +5,13 @@ import { Timeline } from "@/components/ui/timeline";
 const Projects = () => {
   const projectsData = [
     {
-      projectName: "Maskwa",
-      projectImage: "/Maskwa/Maskwa3.png",
-      type:"desktop",
-      className: "bg-neutral-900",
-      title: "Traditional Land Verification & Management System",
-      description: "A digital platform for verifying and approving traditional land holdings using GPS mapping, document authentication, and automated approval workflows.",
-      checklist: [
-        "Land Mapping with GPS coordinates",
-        "Multi-user authentication system",
-        "Smart notification alerts",
-        "Web crawler for public record validation",
-        "Digital document upload and storage",
-        "Approval pipeline with status tracking",
-      ],
-    },
-    {
       projectName: "VBOIL",
-      projectImage: "/VBOIL/Vboil2.png",
-      type:"desktop",
+      projectImages: ["/VBOIL/Vboil2.png", "/VBOIL/Vboil3.png", "/VBOIL/Vboil4.png", "/VBOIL/Vboil1.png"],
+      type: "desktop",
       className: "",
       title: "Oil Waste Resource Collection Platform",
-      description: "An eco-friendly logistics platform for oil companies to collect used oil, water, and plastic waste from restaurants, with real-time driver tracking and smart routing.",
+      description:
+        "An eco-friendly logistics platform for oil companies to collect used oil, water, and plastic waste from restaurants, with real-time driver tracking and smart routing.",
       checklist: [
         "Live GPS driver tracking",
         "Automated customer/driver notifications",
@@ -38,12 +23,47 @@ const Projects = () => {
       ],
     },
     {
+      projectName: "Maskwa",
+      projectImages: ["/Maskwa/Maskwa3.png", "/Maskwa/Maskwa1.png", "/Maskwa/Maskwa2.png", "/Maskwa/Maskwa5.png"],
+      type: "desktop",
+      className: "bg-neutral-900",
+      title: "Traditional Land Verification & Management System",
+      description:
+        "A digital platform for verifying and approving traditional land holdings using GPS mapping, document authentication, and automated approval workflows.",
+      checklist: [
+        "Land Mapping with GPS coordinates",
+        "Multi-user authentication system",
+        "Smart notification alerts",
+        "Web crawler for public record validation",
+        "Digital document upload and storage",
+        "Approval pipeline with status tracking",
+      ],
+    },
+    {
+      projectName: "ThotAI",
+      projectImages: ["/Thot/Thot11.png", "/Thot/Thot1.png", "/Thot/Thot2.png", "/Thot/Thot3.png"],
+      type: "desktop",
+      className: "",
+      title: "Retail & Profit Optimization Dashboard",
+      description:
+        "A smart retail assistant that guides store owners in inventory decisions, marketing, and profit tracking using AI insights and financial analysis tools.",
+      checklist: [
+        "Role-based access for owners and agents",
+        "Online/offline store registration",
+        "AI-powered product & market suggestions",
+        "Profit/loss analysis by product or category",
+        "Geo-based investment recommendations",
+        "Product catalog with purchasing options",
+      ],
+    },
+    {
       projectName: "SPYK",
-      projectImage: "/Spyk-health.png?w=600&h=600&fit=crop",
-      type:"mobile",
+      projectImages: ["/Spyk-health.png?w=600&h=600&fit=crop"],
+      type: "mobile",
       className: "",
       title: "AI-Powered Personal Health Tracker",
-      description: "A lifestyle tracking app that integrates with wearables to monitor food, sleep, activity, and vitals, offering AI-based health insights and reminders.",
+      description:
+        "A lifestyle tracking app that integrates with wearables to monitor food, sleep, activity, and vitals, offering AI-based health insights and reminders.",
       checklist: [
         "Health dashboard for vitals and activities",
         "Lifestyle and diet tracking with insights",
@@ -55,11 +75,12 @@ const Projects = () => {
     },
     {
       projectName: "MyTeal",
-      projectImage: "/Myteal.png?w=600&h=600&fit=crop",
-      type:"mobile",
+      projectImages: ["/Myteal.png?w=600&h=600&fit=crop"],
+      type: "mobile",
       className: "",
       title: "Women's Mental Health Monitoring Platform",
-      description: "A private digital assistant that uses AI to detect emotional distress, analyze behavior, and provide mental health support while ensuring user anonymity.",
+      description:
+        "A private digital assistant that uses AI to detect emotional distress, analyze behavior, and provide mental health support while ensuring user anonymity.",
       checklist: [
         "AI-powered emotional support assistant",
         "Behavioral trend and mood analysis",
@@ -70,11 +91,12 @@ const Projects = () => {
     },
     {
       projectName: "NSpeed",
-      projectImage: "/NSpeed.png?w=600&h=600&fit=crop",
-      type:"desktop",
+      projectImages: ["/NSpeed.png?w=600&h=600&fit=crop"],
+      type: "desktop",
       className: "",
       title: "Health Diagnostics & Vitamin Deficiency Detection",
-      description: "An instant diagnostic tool to measure sugar, pressure, and vitamin levels, generating AI-powered reports and preventive health suggestions.",
+      description:
+        "An instant diagnostic tool to measure sugar, pressure, and vitamin levels, generating AI-powered reports and preventive health suggestions.",
       checklist: [
         "Rapid vitals scan (BP, sugar, vitamins)",
         "AI-generated deficiency reports",
@@ -86,11 +108,12 @@ const Projects = () => {
     },
     {
       projectName: "Iscan",
-      projectImage: "/Iscan.png?w=600&h=600&fit=crop",
-      type:"mobile",
+      projectImages: ["/Iscan.png?w=600&h=600&fit=crop"],
+      type: "mobile",
       className: "",
       title: "Real-Time Eye Movement & Vision Analytics",
-      description: "An eye-tracking and fatigue detection tool powered by MediaPipe to monitor gaze patterns, focus, and strain with clinical-grade accuracy.",
+      description:
+        "An eye-tracking and fatigue detection tool powered by MediaPipe to monitor gaze patterns, focus, and strain with clinical-grade accuracy.",
       checklist: [
         "Real-time gaze and blink tracking",
         "Focus and attention monitoring",
@@ -99,29 +122,15 @@ const Projects = () => {
         "On-device processing with privacy-first design",
       ],
     },
-    {
-      projectName: "ThotAI",
-      projectImage: "/Thot/Thot11.png",
-      type:"desktop",
-      className: "",
-      title: "Retail & Profit Optimization Dashboard",
-      description: "A smart retail assistant that guides store owners in inventory decisions, marketing, and profit tracking using AI insights and financial analysis tools.",
-      checklist: [
-        "Role-based access for owners and agents",
-        "Online/offline store registration",
-        "AI-powered product & market suggestions",
-        "Profit/loss analysis by product or category",
-        "Geo-based investment recommendations",
-        "Product catalog with purchasing options",
-      ],
-    },
+
     {
       projectName: "ClinicAI",
-      projectImage: "/ClinicAI.png?w=600&h=600&fit=crop",
-      type:"mobile",
+      projectImages: ["/ClinicAI.png?w=600&h=600&fit=crop"],
+      type: "mobile",
       className: "",
       title: "Smart Clinic & Hospital Management System",
-      description: "A full-stack clinic management platform that automates patient flow, appointment scheduling, health records, and billing with AI-driven insights.",
+      description:
+        "A full-stack clinic management platform that automates patient flow, appointment scheduling, health records, and billing with AI-driven insights.",
       checklist: [
         "Smart patient registration and history tracking",
         "AI-based appointment scheduling",
@@ -132,14 +141,15 @@ const Projects = () => {
         "Multi-channel reminders (SMS/Email/In-app)",
       ],
     },
-  ];  
+  ];
 
   const timelineData = projectsData.map((project) => ({
     title: project.projectName,
     content: {
-      img: project.projectImage,
+      img: project.projectImages[0],
+      images: project.projectImages,
       alt: project.projectName,
-      type: project.type as 'desktop' | 'mobile',
+      type: project.type as "desktop" | "mobile",
       description: project.description,
       checklist: project.checklist,
       className: project.className,
@@ -147,7 +157,7 @@ const Projects = () => {
   }));
 
   return (
-    <div className="min-h-screen mt-8 md:mt-30 w-full bg-white">
+    <div className="min-h-screen mt-8 md:mt-30 w-full bg-gray-100">
       <div className="max-w-7xl mx-auto py-16 px-4 md:px-8 lg:px-10">
         <div className="text-center mb-16">
           <h1 className="text-3xl md:text-5xl font-bold text-black mb-6">

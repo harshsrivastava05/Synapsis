@@ -43,7 +43,7 @@ const ProjectDetail = ({ params }: ProjectDetailProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-16">
+    <div className="min-h-screen bg-gray-100 pt-16">
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -64,7 +64,7 @@ const ProjectDetail = ({ params }: ProjectDetailProps) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-20"
           >
-            <div className="relative overflow-hidden w-full max-w-4xl mx-auto">
+            <div className="relative overflow-hidden w-full max-w-5xl mx-auto">
               <Carousel className="w-full">
                 <CarouselPrevious className="absolute m-2 left-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-white text-gray-900 shadow rounded-full w-10 h-10 flex items-center justify-center transition" />
                 <CarouselContent>
@@ -94,7 +94,7 @@ const ProjectDetail = ({ params }: ProjectDetailProps) => {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-100">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -134,7 +134,7 @@ const ProjectDetail = ({ params }: ProjectDetailProps) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gray-100 p-8 rounded-sm border border-gray-200 hover:shadow-md transition-shadow duration-300"
+                className="bg-gray-50 p-8 rounded-sm border shadow-md border-gray-200 hover:shadow-md transition-shadow duration-300"
               >
                 <div className="flex items-start space-x-4">
                   <div className="text-gray-700 flex-shrink-0">

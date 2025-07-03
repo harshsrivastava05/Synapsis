@@ -77,7 +77,7 @@ export function BlogMarquee() {
   });
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-gray-100 py-20">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12">

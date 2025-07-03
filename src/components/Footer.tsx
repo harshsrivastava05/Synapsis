@@ -57,7 +57,7 @@ const footerLinks: FooterSection[] = [
 
 export function Footer() {
   return (
-    <footer className="relative w-full  mx-auto flex flex-col items-center justify-center border border-neutral-200 bg-white dark:bg-black px-6 py-12 lg:py-16 mt-20">
+    <footer className="relative w-full  mx-auto flex flex-col items-center justify-center border border-neutral-200 bg-gray-50 dark:bg-black px-6 py-12 lg:py-16 mt-20">
       <div className="grid w-full gap-12 xl:grid-cols-3 xl:gap-16">
         <AnimatedContainer className="space-y-6">
           <div className="flex items-center space-x-2">

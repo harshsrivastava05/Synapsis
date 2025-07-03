@@ -33,7 +33,7 @@ export default function RootLayout({
         <link rel="icon" href="/SynapsisLogo.svg" type="image/svg+xml" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100`}
       >
         <Navbar />
         <main className="relative flex flex-col min-h-screen">

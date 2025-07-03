@@ -13,7 +13,59 @@ interface TimelineEntry {
     description?: string;
     checklist?: string[];
     className?: string;
+    images?: string[];
   };
+}
+
+interface TimelineImageCarouselProps {
+  images?: string[];
+  alt: string;
+  fallbackImg?: string;
+}
+function TimelineImageCarousel({ images, alt, fallbackImg }: TimelineImageCarouselProps) {
+  const imgs = images && images.length > 0 ? images : fallbackImg ? [fallbackImg] : [];
+  const [idx, setIdx] = useState(0);
+  const [hovered, setHovered] = useState(false);
+  useEffect(() => {
+    if (hovered && imgs.length > 1) {
+      const interval = setInterval(() => {
+        setIdx((prev) => (prev + 1) % imgs.length);
+      }, 500);
+      return () => clearInterval(interval);
+    }
+  }, [hovered, imgs.length]);
+  if (imgs.length === 0) return null;
+  return (
+    <div
+      className="relative group w-full h-full cursor-pointer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <Image
+        src={imgs[idx]}
+        alt={alt}
+        width={960}
+        height={540}
+        className={
+          "w-full h-full object-contain rounded-lg transition duration-200" +
+          (hovered ? " blur-xs" : "")
+        }
+        sizes="100vw"
+      />
+      {/* Overlay text on hover */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={{ duration: 0.2 }}
+        className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none"
+      >
+        <span className="text-white text-lg font-semibold bg-black/20 px-6 py-3 rounded-lg shadow-lg">
+          Click to know more details
+        </span>
+      </motion.div>
+      
+    </div>
+  );
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
@@ -63,17 +115,12 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 {item.title}
               </h3>
               <Link href={`/projects/${item.title}`}>
-              <div className={`w-full h-96 md:h-[28rem] max-h-[36rem] mx-auto rounded-lg shadow relative`}>
-                <Image
-                  src={item.content.img}
-                  alt={item.content.alt}
-                  width={960}
-                  height={540}
-                  className="w-full h-full object-contain rounded-lg"
-                  sizes="100vw"
-                  priority={index === 0}
-                />
-              </div>
+                <motion.div
+                  whileHover={{ scale: 1.04, zIndex: 20 }}
+                  className={`w-full h-96 md:h-[28rem] max-h-[36rem] mx-auto rounded-lg shadow relative`}
+                >
+                  <TimelineImageCarousel images={item.content.images} fallbackImg={item.content.img} alt={item.content.alt} />
+                </motion.div>
               </Link>
               {item.content.description && (
                 <p className="mt-4 text-neutral-600 text-base md:text-lg">

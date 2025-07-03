@@ -48,7 +48,7 @@ const Navigation = () => {
               height={32}
             />
             <span className="hidden md:inline text-base font-medium text-black">
-              Synapsis Medical Technologies
+              Synapsis Medical Technologies Inc.
             </span>
           </div>
 

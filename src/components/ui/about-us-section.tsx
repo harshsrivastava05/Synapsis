@@ -5,11 +5,6 @@ import type React from "react";
 import { useState, useEffect, useRef } from "react";
 import {
   Pen,
-  PaintBucket,
-  Home,
-  Ruler,
-  PenTool,
-  Building2,
   Award,
   Users,
   Calendar,
@@ -17,8 +12,12 @@ import {
   Sparkles,
   Star,
   ArrowRight,
-  Zap,
   TrendingUp,
+  HeartPulse,
+  Cpu,
+  BarChart3,
+  Layers3,
+  FlaskConical,
 } from "lucide-react";
 import {
   motion,
@@ -54,13 +53,13 @@ export default function AboutUsSection() {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.3,
+        delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 500, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -74,59 +73,59 @@ export default function AboutUsSection() {
       secondaryIcon: (
         <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />
       ),
-      title: "AI Solutions",
+      title: "AI & NLP Solutions",
       description:
-        "Transform your business operations with our cutting-edge AI solutions. We blend innovation and practicality to create intelligent systems that drive efficiency and growth.",
+        "Build context-aware, language-intelligent systems using AI and NLP to automate workflows, generate insights, and enhance communication.",
       position: "left",
     },
     {
-      icon: <Home className="w-6 h-6" />,
+      icon: <HeartPulse className="w-6 h-6" />,
       secondaryIcon: (
         <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />
       ),
-      title: "Medical Tech",
+      title: "Healthcare Software",
       description:
-        "Revolutionizing healthcare through advanced medical technologies that enhance patient care and streamline clinical workflows with precision and reliability.",
+        "Design scalable platforms for clinics and hospitals that manage appointments, diagnostics, patient records, and AI-powered health analytics.",
       position: "left",
     },
     {
-      icon: <PenTool className="w-6 h-6" />,
+      icon: <Cpu className="w-6 h-6" />,
       secondaryIcon: (
         <Star className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />
       ),
-      title: "Custom Development",
+      title: "Wearables & Devices",
       description:
-        "Our innovative development process combines technical expertise with deep industry knowledge, resulting in solutions that are both powerful and user-friendly.",
+        "Integrate with health monitoring devices and wearables to track vitals, enable diagnostics, and improve preventive care experiences.",
       position: "left",
     },
     {
-      icon: <PaintBucket className="w-6 h-6" />,
+      icon: <BarChart3 className="w-6 h-6" />,
       secondaryIcon: (
         <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />
       ),
-      title: "Data Analytics",
+      title: "Data & Health Analytics",
       description:
-        "Unlock the power of your data with our comprehensive analytics solutions. From visualization to predictive modeling, we turn data into actionable insights.",
+        "Leverage predictive models, dashboards, and trend detection to extract actionable insights from healthcare and operations data.",
       position: "right",
     },
     {
-      icon: <Ruler className="w-6 h-6" />,
+      icon: <Layers3 className="w-6 h-6" />,
       secondaryIcon: (
         <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />
       ),
       title: "System Integration",
       description:
-        "Our meticulous integration process ensures seamless connectivity between systems, with careful attention to security, performance, and scalability requirements.",
+        "Seamlessly connect devices, databases, and software layers across healthcare and enterprise systems with scalable architecture.",
       position: "right",
     },
     {
-      icon: <Building2 className="w-6 h-6" />,
+      icon: <FlaskConical className="w-6 h-6" />,
       secondaryIcon: (
         <Star className="w-4 h-4 absolute -top-1 -right-1 text-gray-500" />
       ),
-      title: "Implementation",
+      title: "Nanotech & Research",
       description:
-        "Watch your vision come to life through our flawless implementation. Our skilled team handles every aspect of deployment with precision and ongoing support.",
+        "Collaborate on next-gen projects involving nanotechnology, biomedical sensors, and AI for early diagnostics and patient care innovation.",
       position: "right",
     },
   ];
@@ -147,19 +146,19 @@ export default function AboutUsSection() {
     <section
       id="about-section"
       ref={sectionRef}
-      className="w-full py-24 px-4 bg-white overflow-hidden relative"
+      className="w-full py-24 px-4  overflow-hidden relative bg-gray-100"
     >
       {/* Decorative background elements */}
       <motion.div
-        className="absolute top-20 left-10 w-64 h-64 rounded-full bg-neutral-200/20 blur-3xl"
+        className="absolute top-20 left-10 w-64 h-64 rounded-full z-100 bg-neutral-300/20 blur-3xl"
         style={{ y: y1, rotate: rotate1 }}
       />
       <motion.div
-        className="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-neutral-300/20 blur-3xl"
+        className="absolute bottom-20 right-10 w-80 h-80 rounded-full z-100 bg-neutral-300/20 blur-3xl"
         style={{ y: y2, rotate: rotate2 }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/4 w-4 h-4 rounded-full bg-neutral-400/30"
+        className="absolute top-1/2 left-1/4 w-4 h-4 rounded-full bg-neutral-200/80"
         animate={{
           y: [0, -15, 0],
           opacity: [0.5, 1, 0.5],
@@ -171,7 +170,7 @@ export default function AboutUsSection() {
         }}
       />
       <motion.div
-        className="absolute bottom-1/3 right-1/4 w-6 h-6 rounded-full bg-neutral-500/30"
+        className="absolute bottom-1/3 right-1/4 w-6 h-6 rounded-full bg-neutral-200/80"
         animate={{
           y: [0, 20, 0],
           opacity: [0.5, 1, 0.5],
@@ -185,7 +184,7 @@ export default function AboutUsSection() {
       />
 
       <motion.div
-        className="container mx-auto max-w-6xl relative z-10 bg-neutral-800 rounded-2xl shadow-xl px-4 md:px-12 py-12 md:py-20"
+        className="container mx-auto max-w-7xl relative z-10 bg-neutral-800 rounded-2xl shadow-xl px-4 md:px-12 py-12 md:py-20"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
@@ -195,12 +194,18 @@ export default function AboutUsSection() {
           variants={itemVariants}
         >
           <motion.span
-            className="text-white font-medium mb-2 flex items-center gap-2"
+            className="font-medium mb-2 flex items-center gap-2 bg-gradient-to-r from-pink-400 to-white bg-clip-text text-transparent"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Zap className="w-4 h-4" />
+            <Image
+              src="/SynapsisLogo.svg"
+              alt="Synapsis Logo"
+              width={20}
+              height={20}
+              className="inline-block"
+            />
             DISCOVER OUR STORY
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-light mb-4 text-center text-white">
@@ -258,7 +263,7 @@ export default function AboutUsSection() {
               >
                 <div className="flex items-center justify-center w-full max-w-xs h-64 md:h-80 relative rounded-md overflow-hidden shadow-xl bg-neutral-100">
                   <Image
-                    src="/office.jpg"
+                    src="/image.png"
                     alt="Our Team"
                     className="w-full h-full object-cover rounded-md"
                     fill
@@ -366,16 +371,14 @@ export default function AboutUsSection() {
       </motion.div>
       {/* CTA Section OUTSIDE the box */}
       <motion.div
-        className="container mx-auto max-w-6xl mt-10 bg-neutral-900 text-white p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl"
+        className="container mx-auto max-w-7xl mt-10 bg-neutral-900 text-white p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         <div className="flex-1">
-          <h3 className="text-2xl font-medium mb-2">
-            Ready to transform your business?
-          </h3>
+          <h3 className="text-2xl font-medium mb-2">Connect with us today!</h3>
           <p className="text-white/80">
             Let&apos;s create something extraordinary together.
           </p>
