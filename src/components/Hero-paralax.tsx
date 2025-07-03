@@ -9,13 +9,13 @@ export default function HeroParallaxDemo() {
 export const products = [
   {
     title: "Maskwa - Land Verification Platform",
-    link: "#",
+    link: "https://dev-maskwa.synapsismedical.com/",
     thumbnail:
       "/maskwa.png?w=600&h=600&fit=crop",
   },
   {
     title: "VBOIL - Smart Oil Recycling",
-    link: "#",
+    link: "https://dev-vboil.synapsismedical.com/dashboard",
     thumbnail:
       "/vboil.png?w=600&h=600&fit=crop",
   },
@@ -45,7 +45,7 @@ export const products = [
   },
   {
     title: "Thot AI - Retail Optimization Suite",
-    link: "#",
+    link: "https://main.d157ga6gwhviww.amplifyapp.com/login",
     thumbnail:
       "/Thotai.png?w=600&h=600&fit=crop",
   },

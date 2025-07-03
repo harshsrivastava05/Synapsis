@@ -7,6 +7,7 @@ import {
   useSpring,
   MotionValue,
 } from "framer-motion";
+import Image from 'next/image';
 
 export const HeroParallax = ({
   products,
@@ -133,7 +134,7 @@ export const ProductCard = ({
       className="group/product h-96 w-[30rem] relative shrink-0"
     >
       <div className="block group-hover/product:shadow-2xl transition-shadow duration-300">
-        <img
+        <Image
           src={product.thumbnail}
           height="600"
           width="600"
