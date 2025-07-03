@@ -73,7 +73,7 @@ export const HeroParallax = ({
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-10">
           {firstRow.map((product) => (
-            <Link href={product.link} target="_blank" rel="noopener noreferrer">
+            <Link href={product.link} target="_blank" rel="noopener noreferrer" key={product.title}>
               <ProductCard
                 product={product}
                 translate={translateX}
@@ -84,7 +84,7 @@ export const HeroParallax = ({
         </motion.div>
         <motion.div className="flex flex-row mb-10 space-x-20">
           {secondRow.map((product) => (
-            <Link href={product.link} target="_blank" rel="noopener noreferrer">
+            <Link href={product.link} target="_blank" rel="noopener noreferrer" key={product.title}>
               <ProductCard
                 product={product}
                 translate={translateXReverse}
