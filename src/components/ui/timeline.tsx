@@ -1,9 +1,5 @@
 "use client";
-import {
-  useScroll,
-  useTransform,
-  motion,
-} from "framer-motion";
+import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
@@ -78,7 +74,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                   src={item.content.img}
                   alt={item.content.alt}
                   fill
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: "cover" }}
                   className="rounded-lg"
                   priority={index === 0}
                   sizes="100vw"

@@ -6,20 +6,22 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { FlipWords } from "@/components/ui/flip-words";
 import AboutUsSection from "@/components/ui/about-us-section";
-import ScrollExpandMedia from "@/components/ui/scroll-expansion-hero";
+import { BlogMarquee } from "@/components/ui/blog-carousel";
+import { GridPattern } from "@/components/magicui/grid-pattern";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function HomePage2() {
+export default function HomePage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const companiesRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     const ctx = gsap.context(() => {
       gsap.fromTo(
         heroRef.current,
@@ -93,65 +95,75 @@ export default function HomePage2() {
     "shaping",
   ];
 
-  const HeroContent = () => (
-    <div className="max-w-6xl mx-auto text-center px-8">
-      <motion.h1
-        className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight mb-4"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
-      >
-        <span className="font-bold">
-          Synapsis Medical Technologies Inc.
-        </span>
-      </motion.h1>
-
-      <motion.div
-        className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto mb-8 font-light leading-relaxed min-h-[3rem]"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-      >
-        Empowering industries by{" "}
-        <span className="font-semibold text-white align-middle inline-block">
-          <FlipWords words={descriptiveWords} />
-        </span>{" "}
-        next-generation solutions.
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-      >
-        <Button
-          size="lg"
-          className="bg-white text-neutral-900 hover:bg-gray-100 px-8 py-3 text-base font-normal transition-all duration-300 rounded-sm shadow-sm hover:shadow-md"
-        >
-          View Our Work
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-      </motion.div>
-    </div>
-  );
-
   return (
     <div className="bg-white">
       {/* Hero Section - Full Screen */}
-      <ScrollExpandMedia
-        mediaType="image"
-        mediaSrc="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=1920&auto=format&fit=crop"
-        bgImageSrc="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1920&auto=format&fit=crop"
-        title="Synapsis Medical Technologies"
-        date="Innovation & Excellence"
-        scrollToExpand="Scroll to Expand"
-        textBlend={true}
+      <section
+        ref={heroRef}
+        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
       >
-        <HeroContent />
-      </ScrollExpandMedia>
+        <GridPattern
+        width={40}
+        height={40}
+        x={10}
+        y={5}
+        className={cn(
+          "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] ",
+        )}
+      />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative z-10 text-center px-8 max-w-6xl mx-auto"
+        >
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-6xl font-light text-neutral-900 leading-tight mb-4"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+          >
+            <span className="font-bold text-neutral-900">
+              Synapsis Medical Technologies Inc.
+            </span>
+          </motion.h1>
+
+          <motion.div
+            className="text-lg md:text-xl lg:text-2xl text-neutral-700 max-w-4xl mx-auto mb-4 font-light leading-relaxed min-h-[4rem]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Empowering industries by{" "}
+            <span className="font-semibold text-neutral-900 align-middle inline-block">
+              <FlipWords words={descriptiveWords} />
+            </span>{" "}
+            next-generation solutions.
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <Link href="/projects">
+              <Button
+                size="lg"
+                className="bg-neutral-900 text-white hover:bg-neutral-800 px-8 py-3 text-base font-normal transition-all duration-300 rounded-sm shadow-sm hover:shadow-md"
+              >
+                View Our Work
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </motion.div>
+        </motion.div>
+      </section>
 
       {/* About Section */}
       <AboutUsSection />
+
+      {/*Blog section */}
+      <BlogMarquee />
     </div>
   );
 }

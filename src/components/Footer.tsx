@@ -50,17 +50,14 @@ const footerLinks: FooterSection[] = [
       { title: 'Facebook', href: '#', icon: Facebook },
       { title: 'Instagram', href: '#', icon: Instagram },
       { title: 'Youtube', href: '#', icon: Youtube },
-      { title: 'LinkedIn', href: '#', icon: Linkedin },
+      { title: 'LinkedIn', href: 'https://www.linkedin.com/company/synapsis-medical/', icon: Linkedin },
     ],
   },
 ];
 
 export function Footer() {
   return (
-    <footer className="relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center rounded-t-3xl md:rounded-t-[3rem] border-t bg-gradient-to-b from-slate-50/50 to-white dark:from-slate-900/50 dark:to-slate-950 px-6 py-12 lg:py-16 mt-20">
-      {/* Top gradient line */}
-      <div className="absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent blur-sm" />
-
+    <footer className="relative w-full max-w-7xl mx-auto flex flex-col items-center justify-center rounded-t-3xl md:rounded-t-[3rem] border-t border-neutral-200 bg-white dark:bg-black px-6 py-12 lg:py-16 mt-20">
       <div className="grid w-full gap-12 xl:grid-cols-3 xl:gap-16">
         <AnimatedContainer className="space-y-6">
           <div className="flex items-center space-x-2">
@@ -71,14 +68,14 @@ export function Footer() {
               height={32}
               className="rounded"
             />
-            <span className="text-xl font-bold text-black">
+            <span className="text-xl font-semibold text-black dark:text-white">
               Synapsis
             </span>
           </div>
-          <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
-            Building intelligent systems that improve lives through AI. Our solutions span healthcare, sustainability, and enterprise innovation.
+          <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-sm">
+            Building intelligent systems that improve lives. Our solutions span healthcare, sustainability, and enterprise innovation.
           </p>
-          <p className="text-muted-foreground text-xs">
+          <p className="text-xs text-neutral-500 dark:text-neutral-500">
             © {new Date().getFullYear()} Synapsis Medical Technologies. All rights reserved.
           </p>
         </AnimatedContainer>
@@ -87,7 +84,7 @@ export function Footer() {
           {footerLinks.map((section, index) => (
             <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
               <div className="space-y-4">
-                <h3 className="text-sm font-semibold text-foreground tracking-wide uppercase">
+                <h3 className="text-xs font-semibold text-neutral-800 dark:text-neutral-200 uppercase tracking-wider">
                   {section.label}
                 </h3>
                 <ul className="space-y-3">
@@ -95,15 +92,12 @@ export function Footer() {
                     <li key={link.title}>
                       <a
                         href={link.href}
-                        className="text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 inline-flex items-center text-sm transition-all duration-300 hover:translate-x-1 group"
+                        className="inline-flex items-center text-sm text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition"
                       >
                         {link.icon && (
-                          <link.icon className="me-2 size-4 group-hover:scale-110 transition-transform duration-300" />
+                          <link.icon className="me-2 size-4" />
                         )}
-                        <span className="relative">
-                          {link.title}
-                          <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-blue-600 to-blue-400 transition-all duration-300 group-hover:w-full" />
-                        </span>
+                        {link.title}
                       </a>
                     </li>
                   ))}
@@ -114,10 +108,9 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom section with additional branding */}
-      <AnimatedContainer delay={0.6} className="mt-4 pt-8 border-t border-muted w-full text-center">
-        <p className="text-xs text-muted-foreground">
-          Empowering healthcare through artificial intelligence • Building the future of medical technology
+      <AnimatedContainer delay={0.6} className="mt-4 pt-8 border-t border-neutral-200 dark:border-neutral-800 w-full text-center">
+        <p className="text-xs text-neutral-500 dark:text-neutral-500">
+          Empowering healthcare through artificial intelligence. Building the future of medical technology.
         </p>
       </AnimatedContainer>
     </footer>
@@ -133,12 +126,12 @@ type ViewAnimationProps = {
 function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationProps) {
   return (
     <motion.div
-      initial={{ filter: 'blur(4px)', translateY: 16, opacity: 0 }}
-      whileInView={{ filter: 'blur(0px)', translateY: 0, opacity: 1 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ 
-        delay, 
-        duration: 0.8,
+      initial={{ opacity: 0, y: 8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        delay,
+        duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94]
       }}
       className={className}

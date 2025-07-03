@@ -14,7 +14,7 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 30);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -30,40 +30,40 @@ const Navigation = () => {
 
   const handleMobileNav = (path: string) => {
     setIsOpen(false);
-    setTimeout(() => {
-      router.push(path);
-    }, 200);
+    setTimeout(() => router.push(path), 200);
   };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/90 backdrop-blur-sm border-b border-gray-200 shadow-sm' : 'bg-white'
+      scrolled ? 'bg-white/90 backdrop-blur-md border-b border-neutral-200' : 'bg-white'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-3 flex-shrink-0">
+          <div className="flex items-center gap-3">
             <Image
               src="/Synapsis_Logo.png"
-              alt="Synapsis Medical Logo"
-              className="h-10 w-auto object-contain"
-              width={40}
-              height={40}
+              alt="Synapsis Logo"
+              className="h-8 w-auto object-contain"
+              width={32}
+              height={32}
             />
-            <span className="hidden md:inline text-lg font-semibold text-gray-900">Synapsis Medical Technologies Inc.</span>
+            <span className="hidden md:inline text-base font-medium text-black">
+              Synapsis Medical Technologies
+            </span>
           </div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-8 flex items-center space-x-6">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.path}
-                  className={`px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md
-                    ${pathname === item.path
-                      ? 'text-blue-600 font-semibold bg-blue-50'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'}
-                  `}
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    pathname === item.path
+                      ? 'text-black border-b-2 border-black pb-1'
+                      : 'text-neutral-600 hover:text-black'
+                  }`}
                 >
                   {item.name}
                 </Link>
@@ -71,11 +71,12 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu toggle */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600 p-2"
+              className="text-black p-2"
+              aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -90,18 +91,18 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200"
+            className="md:hidden bg-white border-t border-neutral-200"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="px-4 pt-4 pb-6 space-y-2">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => handleMobileNav(item.path)}
-                  className={`block px-3 py-2 text-base font-medium w-full text-left rounded-md transition-colors duration-200
-                    ${pathname === item.path
-                      ? 'text-blue-600 font-semibold bg-blue-50'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'}
-                  `}
+                  className={`block w-full text-left text-sm font-medium px-3 py-2 rounded-md transition ${
+                    pathname === item.path
+                      ? 'text-black font-semibold'
+                      : 'text-neutral-700 hover:text-black'
+                  }`}
                 >
                   {item.name}
                 </button>
