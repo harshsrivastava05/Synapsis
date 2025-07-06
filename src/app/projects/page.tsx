@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
+import { Timeline2 } from "@/components/ui/timeline2";
 
 const Projects = () => {
   const projectsData = [
@@ -182,7 +183,7 @@ const Projects = () => {
         </div>
       </div>
 
-      <Timeline data={timelineData} />
+      <Timeline2 data={timelineData} />
     </div>
   );
 };

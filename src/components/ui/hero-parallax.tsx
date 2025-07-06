@@ -56,10 +56,24 @@ export const HeroParallax = ({
     springConfig
   );
 
+  const [isBlurred, setIsBlurred] = React.useState(true);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 60) {
+        setIsBlurred(false);
+      } else {
+        setIsBlurred(true);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div
       ref={ref}
-      className="h-[270vh] py-20  antialiased relative flex flex-col self-auto [perspective:2000px] [transform-style:preserve-3d]"
+      className="h-[270vh] py-20 antialiased relative flex flex-col self-auto [perspective:2000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -71,7 +85,7 @@ export const HeroParallax = ({
         }}
         className=""
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-10">
+        <motion.div className={`flex flex-row-reverse space-x-reverse space-x-20 mb-10 transition-all duration-500 ${isBlurred ? 'blur-md' : ''}`}>
           {firstRow.map((product) => (
             <Link
               href={product.link}
@@ -87,7 +101,7 @@ export const HeroParallax = ({
             </Link>
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-10 space-x-20">
+        <motion.div className={`flex flex-row mb-10 space-x-20 transition-all duration-500 ${isBlurred ? 'blur-md' : ''}`}>
           {secondRow.map((product) => (
             <Link
               href={product.link}
@@ -145,13 +159,13 @@ export const ProductCard = ({
         transition: { duration: 0.3, ease: "easeOut" },
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative shrink-0"
+      className="group/product h-80 w-[40rem] relative shrink-0"
     >
       <div className="block group-hover/product:shadow-2xl transition-shadow duration-300">
         <Image
           src={product.thumbnail}
           height="600"
-          width="600"
+          width="800"
           className="object-cover object-left-top absolute h-full w-full inset-0"
           alt={product.title}
         />

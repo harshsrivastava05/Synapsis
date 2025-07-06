@@ -52,7 +52,7 @@ const thirdColumn = testimonials.slice(2, 5);
 
 const Testimonials = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-100">
       <section className="py-16 px-6 border-t border-b border-neutral-200">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div

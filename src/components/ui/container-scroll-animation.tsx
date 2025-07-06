@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import { useInView } from "framer-motion";
 
 export const ContainerScroll = ({
   children,
@@ -11,30 +12,15 @@ export const ContainerScroll = ({
   const { scrollYProgress } = useScroll({
     target: containerRef,
   });
-  const [isMobile, setIsMobile] = React.useState(false);
 
-  React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, []);
-
-  const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.9] : [1.05, 1];
-  };
+  const isContainerInView = useInView(containerRef, { once: false, amount: 0.1 });
 
   const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
   const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center relative "
+      className={`min-h-screen flex items-center justify-center relative ${isContainerInView ? 'w-screen max-w-none' : 'w-full'}`}
       ref={containerRef}
     >
       <div
@@ -42,8 +28,7 @@ export const ContainerScroll = ({
           perspective: "1500px",
         }}
       >
-        {/* <Header translate={translate} titleComponent={titleComponent} /> */}
-        <Card rotate={rotate} translate={translate} scale={scale}>
+        <Card rotate={rotate} translate={translate}>
           {children}
         </Card>
       </div>
@@ -51,23 +36,30 @@ export const ContainerScroll = ({
   );
 };
 
-
-
 export const Card = ({
   rotate,
-  scale,
+  translate,
   children,
 }: {
   rotate: MotionValue<number>;
-  scale: MotionValue<number>;
   translate: MotionValue<number>;
   children: React.ReactNode;
 }) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { amount: 0.5, once: false });
+
   return (
     <motion.div
+      ref={ref}
       style={{
         rotateX: rotate,
-        scale,
+        width: isInView ? '100vw' : '70rem',
+        left: isInView ? '50%' : 'auto',
+        transform: isInView ? 'translateX(-50%)' : 'none',
+        position: isInView ? 'fixed' : 'relative',
+        top: isInView ? '50%' : 'auto',
+        zIndex: isInView ? 50 : 'auto',
+        transition: 'width 0.6s cubic-bezier(0.4,0,0.2,1), left 0.6s, transform 0.6s, position 0.6s, top 0.6s',
       }}
     >
       {children}
