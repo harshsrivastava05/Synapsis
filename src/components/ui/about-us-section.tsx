@@ -146,7 +146,7 @@ export default function AboutUsSection() {
     <section
       id="about-section"
       ref={sectionRef}
-      className="w-full max-w-full py-24 px-4  overflow-hidden relative bg-gray-100"
+      className="w-full py-24 overflow-hidden relative bg-white"
     >
       {/* Decorative background elements */}
       <motion.div
@@ -184,7 +184,7 @@ export default function AboutUsSection() {
       />
 
       <motion.div
-        className="container mx-auto max-w-7xl relative z-10 bg-neutral-800 rounded-2xl shadow-xl px-4 md:px-12 py-12 md:py-20"
+        className="w-full relative z-10 bg-neutral-800 rounded-2xl shadow-xl px-4 md:px-12 py-12 md:py-20"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
@@ -229,7 +229,7 @@ export default function AboutUsSection() {
           challenges into elegant solutions.
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 text-white gap-8 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 text-white gap-8 relative justify-between items-stretch">
           {/* Left Column */}
           <div className="space-y-16">
             {services
@@ -349,29 +349,33 @@ export default function AboutUsSection() {
           </div>
         </div>
 
+        
         {/* Stats Section */}
         <motion.div
           ref={statsRef}
-          className="mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-white"
+          className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-white px-4 lg:px-0"
           initial="hidden"
           animate={isStatsInView ? "visible" : "hidden"}
           variants={containerVariants}
         >
-          {stats.map((stat, index) => (
-            <StatCounter
-              key={index}
-              icon={stat.icon}
-              value={stat.value}
-              label={stat.label}
-              suffix={stat.suffix}
-              delay={index * 0.1}
-            />
-          ))}
+            {stats.map((stat, index) => (
+              <div key={index} className="flex justify-center items-stretch">
+                <div className="w-64 max-w-full flex flex-col h-full">
+                  <StatCounter
+                    icon={stat.icon}
+                    value={stat.value}
+                    label={stat.label}
+                    suffix={stat.suffix}
+                    delay={index * 0.1}
+                  />
+                </div>
+              </div>
+            ))}
         </motion.div>
       </motion.div>
       {/* CTA Section OUTSIDE the box */}
       <motion.div
-        className="container mx-auto max-w-7xl mt-10 bg-neutral-900 text-white p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl"
+        className="mx-auto max-w-6xl mt-10 bg-neutral-900 text-white p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
