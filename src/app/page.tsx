@@ -1,12 +1,9 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import AboutUsSection from "@/components/ui/about-us-section";
 import { BlogMarquee } from "@/components/ui/blog-carousel";
-
 import HeroParallaxDemo from "@/components/Hero-paralax";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { cn } from "@/lib/utils";
@@ -87,27 +84,27 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="bg-white">
+    <div className="bg-gray-100 w-screen">
       {/* Hero Section - Full Screen */}
       <div className="relative flex size-full items-center justify-center overflow-hidden rounded-lg border bg-background">
-      <GridPattern
-        width={20}
-        height={20}
-        x={1}
-        y={1}
-        className={cn(
-          "[mask-image:linear-gradient(to_bottom_left,white,transparent,transparent)] ","blur-[2px] opacity-70",
-        )}
-      />
-      <HeroParallaxDemo />
-    </div>
-      
-     
+        <GridPattern
+          width={20}
+          height={20}
+          x={1}
+          y={1}
+          className={cn(
+            "[mask-image:linear-gradient(to_bottom_left,white,transparent,transparent)]",
+            "blur-[2px] opacity-70"
+          )}
+        />
+        <HeroParallaxDemo />
+      </div>
+
       {/* About Section */}
-      <div className="w-full min-w-full">
-      <ContainerScroll>
-        <AboutUsSection />
-      </ContainerScroll>
+      <div className="w-screen bg-gray-100">
+        <ContainerScroll>
+          <AboutUsSection />
+        </ContainerScroll>
       </div>
 
       {/*Blog section */}

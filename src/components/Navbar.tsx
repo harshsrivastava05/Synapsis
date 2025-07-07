@@ -59,11 +59,13 @@ const Navigation = () => {
                 <Link
                   key={item.name}
                   href={item.path}
-                  className={`text-sm font-medium transition-colors duration-200 ${
-                    pathname === item.path
-                      ? 'text-black border-b-2 border-black pb-1'
-                      : 'text-neutral-600 hover:text-black'
-                  }`}
+                  className={`text-sm font-medium px-4 py-2.5 rounded-md transition-all duration-250
+                    ${
+                      pathname === item.path
+                        ? 'bg-black text-white shadow-md'
+                        : 'text-neutral-600 hover:text-black hover:bg-neutral-100'
+                    }
+                  `}
                 >
                   {item.name}
                 </Link>
