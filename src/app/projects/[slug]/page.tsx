@@ -64,13 +64,13 @@ const ProjectDetail = ({ params }: ProjectDetailProps) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-20"
           >
-            <div className="relative overflow-hidden w-full max-w-5xl mx-auto">
+            <div className="relative overflow-hidden w-full max-w-7xl mx-auto">
               <Carousel className="w-full">
                 <CarouselPrevious className="absolute m-2 left-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-white text-gray-900 shadow rounded-full w-10 h-10 flex items-center justify-center transition" />
                 <CarouselContent>
                   {project.carouselSlides.map((slide, index) => (
                     <CarouselItem key={index}>
-                      <div className="relative w-full aspect-video bg-black rounded-sm flex items-center justify-center">
+                      <div className="relative w-full bg-black rounded-sm flex items-center justify-center" style={{ height: '550px' }}>
                         <Image
                           src={slide.image}
                           alt={slide.title}
