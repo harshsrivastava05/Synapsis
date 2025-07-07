@@ -20,12 +20,12 @@ export const ContainerScroll = ({
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center relative ${isContainerInView ? 'w-screen max-w-none' : 'w-full'}`}
+      className={`min-h-screen flex items-center justify-center relative ${isContainerInView ? 'w-screen min-w-full max-w-none' : 'w-full min-w-full'}`}
       ref={containerRef}
     >
       <div
         style={{
-          perspective: "1500px",
+          perspective: "2000px",
         }}
       >
         <Card rotate={rotate} translate={translate}>

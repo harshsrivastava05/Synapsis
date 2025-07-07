@@ -64,8 +64,24 @@ function TimelineImageCarousel({
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none"
       >
-        <span className="text-white text-lg font-semibold bg-black/30 backdrop-blur-sm px-6 py-3 rounded-lg shadow-lg">
-          Click to know more details
+        {/* Eye/preview icon for hover */}
+        <span className="flex items-center justify-center bg-black/30 backdrop-blur-sm p-4 rounded-full shadow-lg">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-10 h-10 animate-fade-in text-white dark:text-gray-200"
+            aria-label="Preview image"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M2.25 12s3.75-7.5 9.75-7.5 9.75 7.5 9.75 7.5-3.75 7.5-9.75 7.5S2.25 12 2.25 12z"
+            />
+            <circle cx="12" cy="12" r="3" fill="currentColor" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
         </span>
       </motion.div>
     </div>
@@ -91,8 +107,8 @@ function Section({ item, index, total }: { item: TimelineEntry; index: number; t
   const bottomBlend =
     index < total - 1
       ? isBlackSection
-        ? "linear-gradient(to top,#f3f4f6 0%,#d1d5db 20%,#9ca3af 40%,#404040 60%,#262626 80%,#171717 100%)"
-        : "linear-gradient(to top,#171717 0%,#404040 20%,#9ca3af 40%,#d1d5db 60%,#e5e7eb 80%,#f3f4f6 100%)"
+        ? "linear-gradient(to top,#f3f4f6 0%,#d1d5db 0%,#9ca3af 0%,#404040 0%,#262626 0%,#171717 0%)"
+        : "linear-gradient(to top,#171717 0%,#404040 0%,#9ca3af 0%,#d1d5db 0%,#e5e7eb 0%,#f3f4f6 0%)"
       : undefined;
 
   return (
@@ -117,7 +133,7 @@ function Section({ item, index, total }: { item: TimelineEntry; index: number; t
         />
       )}
 
-      <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full relative">
+      <div className="flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full relative">
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{
@@ -137,7 +153,7 @@ function Section({ item, index, total }: { item: TimelineEntry; index: number; t
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className={`h-4 w-4 rounded-full border p-2 ${
               isBlackSection
-                ? "bg-white/30 border-white/50 shadow-inner"
+                ? "bg-white/60 border-white/70 shadow-inner"
                 : "bg-black/30 border-black/50 shadow-inner"
             }`}
           />
@@ -257,7 +273,7 @@ function Section({ item, index, total }: { item: TimelineEntry; index: number; t
               className={`text-lg font-semibold mb-2 ${
                 isBlackSection
                   ? "text-white drop-shadow-lg"
-                  : "text-neutral-900 drop-shadow-sm"
+                  : "text-neutral-800 drop-shadow-sm"
               }`}
             >
               Key Features:
@@ -321,7 +337,7 @@ export const Timeline2 = ({ data }: { data: TimelineEntry[] }) => {
   return (
     <div
       ref={containerRef}
-      className="w-full bg-gray-100 dark:bg-neutral-950 font-sans md:px-10"
+      className="w-full bg-gray-100 dark:bg-neutral-900 font-sans md:px-10"
     >
       {/* top spacer */}
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10" />

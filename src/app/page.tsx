@@ -104,7 +104,7 @@ export default function HomePage() {
       
      
       {/* About Section */}
-      <div className="w-full">
+      <div className="w-full min-w-full">
       <ContainerScroll>
         <AboutUsSection />
       </ContainerScroll>
