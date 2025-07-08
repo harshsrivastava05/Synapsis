@@ -24,7 +24,7 @@ import {
         "Maskwa streamlines the verification and approval of traditional land holdings. It allows landowners to validate ownership and usability before construction through GPS mapping, digital records, and structured workflows.",
       
       carouselSlides: [
-        "/Maskwa/Maskwa11.png",
+        "/Maskwa/Maskwa5.png",
         "/Maskwa/Maskwa1.png",
         "/Maskwa/Maskwa2.png",
         "/Maskwa/Maskwa3.png",
