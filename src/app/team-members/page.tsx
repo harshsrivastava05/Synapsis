@@ -64,44 +64,51 @@ const Team = () => {
 
   const teamMembers = [
     {
+      name: "Puja",
+      bio: "Puja is a skilled full stack developer, contributing to both frontend and backend projects with a passion for building robust web applications.",
+      linkedin: "#",
+      avatar: "/members/puja.png",
+    },
+    {
+      name: "Bala",
+      bio: "Bala is a creative designer, focused on delivering intuitive and visually appealing user experiences across all platforms.",
+      linkedin: "#",
+      avatar: "/members/bala.png",
+    },
+    {
+      name: "Saran",
+      bio: "Saran is a backend intern, supporting the team with server-side development and database management.",
+      linkedin: "#",
+      avatar: "/members/saran.png",
+    },
+    {
+      name: "Debojit",
+      bio: "Debojit is an app intern, assisting in the development and optimization of mobile applications.",
+      linkedin: "#",
+      avatar: "/members/debojit.png",
+    },
+    {
+      name: "Jaisudhan",
+      bio: "Jaisudhan is an app developer and ML engineer, bridging the gap between mobile development and machine learning solutions.",
+      linkedin: "#",
+      avatar: "/members/jaisudhan.png",
+    },
+    {
       name: "Amit",
-      bio: "Amit is CTO and senior developer at Synapsis Medical Technologies. Leading AI research and development with 15+ years in machine learning and healthcare technology innovation.",
-      linkedin: "https://www.linkedin.com/in/devamitch/",
+      bio: "Amit is the team leader, guiding the team with experience and vision to achieve project goals.",
+      linkedin: "#",
       avatar: "/members/amit.png",
     },
     {
-      name: "Preetam",
-      bio: "Preetam leads R&D, including Product, gamer, Engineering, and Design. Expert in scalable system architecture and IoT solutions, driving technical excellence across all projects.",
-      linkedin: "https://www.linkedin.com/in/preetamanbukarasu/",
-      avatar: "/members/preetam.png",
-    },
-    {
-      name: "Harsh",
-      bio: "Harsh oversees operations and business development at Synapsis Medical Technologies Inc. With 12+ years in healthcare operations, he ensures seamless execution of our innovative solutions.",
-      linkedin: "https://www.linkedin.com/in/harsh-srivastava-a4ab8a273/",
-      avatar: "/members/harsh.png",
+      name: "Wasim Nahed",
+      bio: "Wasim Nahed is a tester and full stack developer, ensuring quality and reliability across the stack.",
+      linkedin: "#",
+      avatar: "/members/wasim.png",
     },
   ];
 
-  const boardMembers = [
-    {
-      name: "Amit",
-      bio: "Amit is CTO and senior developer at Synapsis Medical Technologies. Leading AI research and development with 15+ years in machine learning and healthcare technology innovation.",
-      linkedin: "https://www.linkedin.com/in/devamitch/",
-      avatar: "/members/amit.png",
-    },
-    {
-      name: "Preetam",
-      bio: "Preetam leads R&D, including Product, gamer, Engineering, and Design. Expert in scalable system architecture and IoT solutions, driving technical excellence across all projects.",
-      linkedin: "https://www.linkedin.com/in/preetamanbukarasu/",
-      avatar: "/members/preetam.png",
-    },
-    {
-      name: "Harsh",
-      bio: "Harsh oversees operations and business development at Synapsis Medical Technologies Inc. With 12+ years in healthcare operations, he ensures seamless execution of our innovative solutions.",
-      linkedin: "https://www.linkedin.com/in/harsh-srivastava-a4ab8a273/",
-      avatar: "/members/harsh.png",
-    },
+  const boardMembers: TeamMember[] = [
+    // Optionally, you can mirror the teamMembers or leave empty if not needed
   ];
 
   const investors = [
@@ -116,38 +123,32 @@ const Team = () => {
   const renderMemberCard = (member: TeamMember, className: string) => (
     <motion.div
       key={member.name}
-      className={`${className} text-left`}
+      className={`${className} flex flex-col items-center text-center h-full bg-white rounded-xl shadow-md p-8`}
       whileHover={{ y: -2 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="mb-6">
-        <div className="w-full aspect-square bg-gray-100 rounded-lg overflow-hidden relative">
+      <div className="mb-6 w-32 h-32 relative">
+        <div className="w-full h-full bg-gray-100 rounded-full overflow-hidden relative">
           <Image
             src={member.avatar}
             alt={member.name}
             fill
             style={{ objectFit: "cover" }}
-            className="rounded-lg"
+            className="rounded-full"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         </div>
       </div>
-
-      <div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-1">
-          {member.name}
-        </h3>
-        <p className="text-gray-700 leading-relaxed mb-6 text-sm">
-          {member.bio}
-        </p>
-
+      <div className="flex flex-col flex-1 justify-between w-full">
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
+        <p className="text-gray-700 leading-relaxed mb-4 text-sm">{member.bio}</p>
         <motion.a
           href={member.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors duration-200"
+          className="inline-flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors duration-200 mt-auto"
         >
           <Linkedin className="h-5 w-5" />
         </motion.a>
@@ -185,39 +186,17 @@ const Team = () => {
       {/* Leadership Section */}
       <section className="px-4 mb-24">
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-normal text-gray-900 mb-4 tracking-tight">
-              Our leadership
-            </h2>
-          </motion.div>
-
           <div
             ref={teamRef}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-8 justify-center items-stretch mx-auto"
           >
-            {/* First 3 members */}
-            {teamMembers
-              .slice(0, 3)
-              .map((member) => renderMemberCard(member, "team-member"))}
-
-            {/* Last 2 members - centered */}
-            <div className="lg:col-span-3 flex justify-center">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 max-w-2xl">
-                {teamMembers
-                  .slice(3, 5)
-                  .map((member) => renderMemberCard(member, "team-member"))}
-              </div>
-            </div>
+            {teamMembers.map((member) => renderMemberCard(member, "team-member"))}
           </div>
         </div>
       </section>
 
       {/* Board of Directors Section */}
+      {/*
       <section className="px-4 mb-24">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -236,15 +215,13 @@ const Team = () => {
             ref={boardRef}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-8"
           >
-            {/* First 3 members */}
             {boardMembers
               .slice(0, 3)
               .map((member) => renderMemberCard(member, "board-member"))}
-
-            {/* Last 2 members - centered */}
           </div>
         </div>
       </section>
+      */}
 
       {/* Investors Section with BrandsGrid */}
       <BrandsGrid brands={investors} title="Our investors" className="py-24" />

@@ -36,7 +36,6 @@ export default function AboutUsSection() {
   const isInView = useInView(sectionRef, { once: false, amount: 0.1 });
   const isStatsInView = useInView(statsRef, { once: false, amount: 0.3 });
 
-  // Parallax effect for decorative elements
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -146,7 +145,7 @@ export default function AboutUsSection() {
     <section
       id="about-section"
       ref={sectionRef}
-      className="w-full py-24 overflow-hidden relative bg-white"
+      className="w-full py-24 overflow-hidden relative"
     >
       {/* Decorative background elements */}
       <motion.div
@@ -184,7 +183,7 @@ export default function AboutUsSection() {
       />
 
       <motion.div
-        className="w-full relative z-10 bg-neutral-800 rounded-2xl shadow-xl px-4 md:px-12 py-12 md:py-20"
+        className="w-full relative z-10 bg-neutral-800  shadow-xl px-4 md:px-12 py-12 md:py-20"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
@@ -302,7 +301,7 @@ export default function AboutUsSection() {
               ></motion.div>
 
               {/* Additional decorative elements */}
-              <motion.div
+              {/* <motion.div
                 className="absolute -top-10 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-neutral-600"
                 animate={{
                   y: [0, -10, 0],
@@ -326,7 +325,7 @@ export default function AboutUsSection() {
                   ease: "easeInOut",
                   delay: 0.5,
                 }}
-              ></motion.div>
+              ></motion.div> */}
             </motion.div>
           </div>
 

@@ -80,7 +80,14 @@ function TimelineImageCarousel({
               strokeLinejoin="round"
               d="M2.25 12s3.75-7.5 9.75-7.5 9.75 7.5 9.75 7.5-3.75 7.5-9.75 7.5S2.25 12 2.25 12z"
             />
-            <circle cx="12" cy="12" r="3" fill="currentColor" stroke="currentColor" strokeWidth="1.5" />
+            <circle
+              cx="12"
+              cy="12"
+              r="3"
+              fill="currentColor"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
           </svg>
         </span>
       </motion.div>
@@ -88,7 +95,15 @@ function TimelineImageCarousel({
   );
 }
 
-function Section({ item, index, total }: { item: TimelineEntry; index: number; total: number }) {
+function Section({
+  item,
+  index,
+  total,
+}: {
+  item: TimelineEntry;
+  index: number;
+  total: number;
+}) {
   const sectionRef = React.useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { margin: "-100px 0px" });
   const isBlackSection = index % 2 === 0;
@@ -97,12 +112,9 @@ function Section({ item, index, total }: { item: TimelineEntry; index: number; t
     ? "linear-gradient(180deg,#171717 0%,#171717 70%,#262626 85%,#404040 93%,#9ca3af 97%,#f3f4f6 100%)"
     : "linear-gradient(180deg,#f3f4f6 0%,#f3f4f6 70%,#e5e7eb 85%,#d1d5db 93%,#404040 97%,#171717 100%)";
 
-  const topBlend =
-    index > 0
-      ? isBlackSection
-        ? "linear-gradient(to bottom,#f3f4f6 0%,#d1d5db 20%,#9ca3af 40%,#404040 60%,#262626 80%,#171717 100%)"
-        : "linear-gradient(to bottom,#171717 0%,#404040 20%,#9ca3af 40%,#d1d5db 60%,#e5e7eb 80%,#f3f4f6 100%)"
-      : undefined;
+  const topBlend = isBlackSection
+    ? "linear-gradient(to bottom, #f3f4f6 0%, #d1d5db 25%, #a1a1a1 50%, #404040 75%, #171717 100%)"
+    : "linear-gradient(to bottom, #171717 0%, #2f2f2f 25%, #606060 50%, #a1a1a1 75%, #f3f4f6 100%)";
 
   const bottomBlend =
     index < total - 1
@@ -316,13 +328,11 @@ function Section({ item, index, total }: { item: TimelineEntry; index: number; t
   );
 }
 
-
 export const Timeline2 = ({ data }: { data: TimelineEntry[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
- 
   useEffect(() => {
     if (ref.current) setHeight(ref.current.getBoundingClientRect().height);
   }, []);

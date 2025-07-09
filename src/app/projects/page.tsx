@@ -4,6 +4,7 @@ import { Timeline } from "@/components/ui/timeline";
 import { Timeline2 } from "@/components/ui/timeline2";
 import { cn } from "@/lib/utils";
 import { DotPattern } from "@/components/magicui/dot-pattern";
+import { GridPattern } from "@/components/magicui/grid-pattern";
 
 const Projects = () => {
   const projectsData = [
@@ -18,17 +19,17 @@ const Projects = () => {
       type: "desktop",
       className: "",
       title: "Oil Waste Resource Collection Platform",
-      description:
-        "An eco-friendly logistics platform for oil companies to collect used oil, water, and plastic waste from restaurants, with real-time driver tracking and smart routing.",
-      checklist: [
-        "Live GPS driver tracking",
-        "Automated customer/driver notifications",
-        "Pickup scheduling by customers",
-        "Resource quantity tracking (oil/water/plastic)",
-        "Driver assignment and route optimization",
-        "Admin dashboard for collection data",
-        "Driver onboarding portal",
-      ],
+      // description:
+      //   "An eco-friendly logistics platform for oil companies to collect used oil, water, and plastic waste from restaurants, with real-time driver tracking and smart routing.",
+      // checklist: [
+      //   "Live GPS driver tracking",
+      //   "Automated customer/driver notifications",
+      //   "Pickup scheduling by customers",
+      //   "Resource quantity tracking (oil/water/plastic)",
+      //   "Driver assignment and route optimization",
+      //   "Admin dashboard for collection data",
+      //   "Driver onboarding portal",
+      // ],
     },
     {
       projectName: "Maskwa",
@@ -41,16 +42,16 @@ const Projects = () => {
       type: "desktop",
       className: "bg-neutral-900",
       title: "Traditional Land Verification & Management System",
-      description:
-        "A digital platform for verifying and approving traditional land holdings using GPS mapping, document authentication, and automated approval workflows.",
-      checklist: [
-        "Land Mapping with GPS coordinates",
-        "Multi-user authentication system",
-        "Smart notification alerts",
-        "Web crawler for public record validation",
-        "Digital document upload and storage",
-        "Approval pipeline with status tracking",
-      ],
+      // description:
+      //   "A digital platform for verifying and approving traditional land holdings using GPS mapping, document authentication, and automated approval workflows.",
+      // checklist: [
+      //   "Land Mapping with GPS coordinates",
+      //   "Multi-user authentication system",
+      //   "Smart notification alerts",
+      //   "Web crawler for public record validation",
+      //   "Digital document upload and storage",
+      //   "Approval pipeline with status tracking",
+      // ],
     },
     {
       projectName: "ThotAI",
@@ -63,16 +64,16 @@ const Projects = () => {
       type: "desktop",
       className: "",
       title: "Retail & Profit Optimization Dashboard",
-      description:
-        "A smart retail assistant that guides store owners in inventory decisions, marketing, and profit tracking using AI insights and financial analysis tools.",
-      checklist: [
-        "Role-based access for owners and agents",
-        "Online/offline store registration",
-        "AI-powered product & market suggestions",
-        "Profit/loss analysis by product or category",
-        "Geo-based investment recommendations",
-        "Product catalog with purchasing options",
-      ],
+      // description:
+      //   "A smart retail assistant that guides store owners in inventory decisions, marketing, and profit tracking using AI insights and financial analysis tools.",
+      // checklist: [
+      //   "Role-based access for owners and agents",
+      //   "Online/offline store registration",
+      //   "AI-powered product & market suggestions",
+      //   "Profit/loss analysis by product or category",
+      //   "Geo-based investment recommendations",
+      //   "Product catalog with purchasing options",
+      // ],
     },
     {
       projectName: "SPYK",
@@ -80,16 +81,16 @@ const Projects = () => {
       type: "mobile",
       className: "",
       title: "AI-Powered Personal Health Tracker",
-      description:
-        "A lifestyle tracking app that integrates with wearables to monitor food, sleep, activity, and vitals, offering AI-based health insights and reminders.",
-      checklist: [
-        "Health dashboard for vitals and activities",
-        "Lifestyle and diet tracking with insights",
-        "Smartwatch and wearable integration",
-        "Reminders for meals, hydration, medication",
-        "AI-generated health recommendations",
-        "Exercise logging and suggestions",
-      ],
+      // description:
+      //   "A lifestyle tracking app that integrates with wearables to monitor food, sleep, activity, and vitals, offering AI-based health insights and reminders.",
+      // checklist: [
+      //   "Health dashboard for vitals and activities",
+      //   "Lifestyle and diet tracking with insights",
+      //   "Smartwatch and wearable integration",
+      //   "Reminders for meals, hydration, medication",
+      //   "AI-generated health recommendations",
+      //   "Exercise logging and suggestions",
+      // ],
     },
     {
       projectName: "MyTeal",
@@ -97,15 +98,15 @@ const Projects = () => {
       type: "mobile",
       className: "",
       title: "Women's Mental Health Monitoring Platform",
-      description:
-        "A private digital assistant that uses AI to detect emotional distress, analyze behavior, and provide mental health support while ensuring user anonymity.",
-      checklist: [
-        "AI-powered emotional support assistant",
-        "Behavioral trend and mood analysis",
-        "Complete data privacy and anonymity",
-        "Tailored wellness suggestions",
-        "Emergency alerts for critical behavior",
-      ],
+      // description:
+      //   "A private digital assistant that uses AI to detect emotional distress, analyze behavior, and provide mental health support while ensuring user anonymity.",
+      // checklist: [
+      //   "AI-powered emotional support assistant",
+      //   "Behavioral trend and mood analysis",
+      //   "Complete data privacy and anonymity",
+      //   "Tailored wellness suggestions",
+      //   "Emergency alerts for critical behavior",
+      // ],
     },
     {
       projectName: "NSpeed",
@@ -113,16 +114,16 @@ const Projects = () => {
       type: "desktop",
       className: "",
       title: "Health Diagnostics & Vitamin Deficiency Detection",
-      description:
-        "An instant diagnostic tool to measure sugar, pressure, and vitamin levels, generating AI-powered reports and preventive health suggestions.",
-      checklist: [
-        "Rapid vitals scan (BP, sugar, vitamins)",
-        "AI-generated deficiency reports",
-        "Health device integration support",
-        "Personal health dashboard",
-        "Preventive lifestyle and nutrition tips",
-        "Health risk alerts",
-      ],
+      // description:
+      //   "An instant diagnostic tool to measure sugar, pressure, and vitamin levels, generating AI-powered reports and preventive health suggestions.",
+      // checklist: [
+      //   "Rapid vitals scan (BP, sugar, vitamins)",
+      //   "AI-generated deficiency reports",
+      //   "Health device integration support",
+      //   "Personal health dashboard",
+      //   "Preventive lifestyle and nutrition tips",
+      //   "Health risk alerts",
+      // ],
     },
     {
       projectName: "Iscan",
@@ -130,15 +131,15 @@ const Projects = () => {
       type: "mobile",
       className: "",
       title: "Real-Time Eye Movement & Vision Analytics",
-      description:
-        "An eye-tracking and fatigue detection tool powered by MediaPipe to monitor gaze patterns, focus, and strain with clinical-grade accuracy.",
-      checklist: [
-        "Real-time gaze and blink tracking",
-        "Focus and attention monitoring",
-        "Eye strain and fatigue detection",
-        "Vision pattern analytics",
-        "On-device processing with privacy-first design",
-      ],
+      // description:
+      //   "An eye-tracking and fatigue detection tool powered by MediaPipe to monitor gaze patterns, focus, and strain with clinical-grade accuracy.",
+      // checklist: [
+      //   "Real-time gaze and blink tracking",
+      //   "Focus and attention monitoring",
+      //   "Eye strain and fatigue detection",
+      //   "Vision pattern analytics",
+      //   "On-device processing with privacy-first design",
+      // ],
     },
 
     {
@@ -147,17 +148,17 @@ const Projects = () => {
       type: "mobile",
       className: "",
       title: "Smart Clinic & Hospital Management System",
-      description:
-        "A full-stack clinic management platform that automates patient flow, appointment scheduling, health records, and billing with AI-driven insights.",
-      checklist: [
-        "Smart patient registration and history tracking",
-        "AI-based appointment scheduling",
-        "Digital prescriptions and record management",
-        "Health dashboard with smart alerts",
-        "Billing and invoice generation",
-        "Doctor analytics and feedback metrics",
-        "Multi-channel reminders (SMS/Email/In-app)",
-      ],
+      // description:
+      //   "A full-stack clinic management platform that automates patient flow, appointment scheduling, health records, and billing with AI-driven insights.",
+      // checklist: [
+      //   "Smart patient registration and history tracking",
+      //   "AI-based appointment scheduling",
+      //   "Digital prescriptions and record management",
+      //   "Health dashboard with smart alerts",
+      //   "Billing and invoice generation",
+      //   "Doctor analytics and feedback metrics",
+      //   "Multi-channel reminders (SMS/Email/In-app)",
+      // ],
     },
   ];
 
@@ -168,8 +169,8 @@ const Projects = () => {
       images: project.projectImages,
       alt: project.projectName,
       type: project.type as "desktop" | "mobile",
-      description: project.description,
-      checklist: project.checklist,
+      // description: project.description,
+      // checklist: project.checklist,
       className: project.className,
     },
   }));
@@ -177,17 +178,15 @@ const Projects = () => {
   return (
     <div className="min-h-screen w-full bg-gray-100">
       <div className="relative min-h-screen z-0 flex flex-col items-center justify-center overflow-hidden border pt-20">
-        <DotPattern
-          width={20}
-          height={20}
-          cx={1.5}
-          cy={1.5}
-          cr={1.5}
-          className={cn(
-            "[mask-image:linear-gradient(to_bottom_right,white,white,transparent)] "
-          )}
-        />
-
+      <GridPattern
+        width={20}
+        height={20}
+        x={1}
+        y={1}
+        className={cn(
+          "[mask-image:linear-gradient(to_bottom_left,white,transparent,transparent)] ",
+        )}
+      />
         <div className="max-w-7xl mx-auto pt-8 px-4 md:px-8 lg:px-10">
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-5xl z-10 font-bold text-black mb-6">
@@ -207,7 +206,7 @@ const Projects = () => {
               crawlers, we enhance both functionality and user experience across
               our solutions. Together, these initiatives demonstrate our
               commitment to building impactful, tech-driven products that
-              improve lives, optimize workflows, and empower industries through
+              improve lives and empower industries through
               innovation.
             </p>
           </div>
