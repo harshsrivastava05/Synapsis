@@ -1,10 +1,8 @@
 "use client";
 import React from "react";
-import { Timeline } from "@/components/ui/timeline";
-import { Timeline2 } from "@/components/ui/timeline2";
 import { cn } from "@/lib/utils";
-import { DotPattern } from "@/components/magicui/dot-pattern";
 import { GridPattern } from "@/components/magicui/grid-pattern";
+import { Timeline3 } from "@/components/ui/timeline2";
 
 const Projects = () => {
   const projectsData = [
@@ -213,7 +211,7 @@ const Projects = () => {
         </div>
       </div>
 
-      <Timeline2 data={timelineData} />
+      <Timeline3 data={timelineData} />
     </div>
   );
 };

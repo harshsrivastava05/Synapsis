@@ -91,7 +91,7 @@ const Team = () => {
       name: "Jaisudhan",
       bio: "Jaisudhan is an app developer and ML engineer, bridging the gap between mobile development and machine learning solutions.",
       linkedin: "#",
-      avatar: "/members/jaisudhan.png",
+      avatar: "",
     },
     {
       name: "Amit",
