@@ -77,17 +77,12 @@ Visit the live website here:
 
 ---
 
-## 📸 Screenshots
-
-Add screenshots here (optional).
-
----
-
 ## 🤝 Contributions
 
 This project is currently maintained as part of the Synapsis Medical Technologies digital portfolio.
 For suggestions or improvements, feel free to open an issue or submit a PR.
 
 ---
+
 
 
